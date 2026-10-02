@@ -1,0 +1,901 @@
+income_id,user_id,date,amount,source,income_type,recurring
+1,1,2025-03-03,195010.0,Employer Payroll,salaried,True
+2,1,2025-04-03,223830.0,Bonus,salaried,True
+3,1,2025-05-02,229710.0,Bonus,salaried,True
+4,1,2025-06-03,333430.0,Freelance Side,salaried,True
+5,1,2025-07-03,216580.0,Employer Payroll,salaried,True
+6,1,2025-08-02,245090.0,Freelance Side,salaried,True
+7,1,2025-09-03,240150.0,Employer Payroll,salaried,True
+8,1,2025-10-02,223140.0,Freelance Side,salaried,True
+9,1,2025-11-03,369540.0,Employer Payroll,salaried,True
+10,1,2025-12-01,243500.0,Overtime,salaried,True
+11,1,2026-01-03,221900.0,Employer Payroll,salaried,True
+12,1,2026-02-01,240030.0,Freelance Side,salaried,True
+13,1,2026-03-02,224770.0,Freelance Side,salaried,True
+14,1,2026-04-03,354060.0,Freelance Side,salaried,True
+15,1,2026-05-02,255360.0,Employer Payroll,salaried,True
+16,1,2026-06-03,351520.0,Overtime,salaried,True
+17,1,2026-07-03,232410.0,Freelance Side,salaried,True
+18,1,2026-08-01,262320.0,Overtime,salaried,True
+19,2,2025-03-01,54700.0,Bonus,salaried,True
+20,2,2025-04-03,93440.0,Employer Payroll,salaried,True
+21,2,2025-05-01,59400.0,Employer Payroll,salaried,True
+22,2,2025-06-01,95270.0,Freelance Side,salaried,True
+23,2,2025-07-02,63870.0,Bonus,salaried,True
+24,2,2025-08-02,60490.0,Bonus,salaried,True
+25,2,2025-09-03,59500.0,Bonus,salaried,True
+26,2,2025-10-03,61680.0,Employer Payroll,salaried,True
+27,2,2025-11-03,105830.0,Freelance Side,salaried,True
+28,2,2025-12-01,48030.0,Employer Payroll,salaried,True
+29,2,2026-01-01,65860.0,Freelance Side,salaried,True
+30,2,2026-02-03,73810.0,Freelance Side,salaried,True
+31,2,2026-03-01,71570.0,Overtime,salaried,True
+32,2,2026-04-03,97510.0,Employer Payroll,salaried,True
+33,2,2026-05-01,78010.0,Employer Payroll,salaried,True
+34,2,2026-06-02,122240.0,Freelance Side,salaried,True
+35,2,2026-07-02,72720.0,Bonus,salaried,True
+36,2,2026-08-01,62710.0,Employer Payroll,salaried,True
+37,3,2025-03-02,101750.0,Freelance Side,salaried,True
+38,3,2025-04-01,150670.0,Overtime,salaried,True
+39,3,2025-05-02,94940.0,Employer Payroll,salaried,True
+40,3,2025-06-03,139500.0,Employer Payroll,salaried,True
+41,3,2025-07-02,96030.0,Freelance Side,salaried,True
+42,3,2025-08-03,95630.0,Overtime,salaried,True
+43,3,2025-09-03,96100.0,Employer Payroll,salaried,True
+44,3,2025-10-03,96130.0,Bonus,salaried,True
+45,3,2025-11-02,156420.0,Overtime,salaried,True
+46,3,2025-12-03,97220.0,Overtime,salaried,True
+47,3,2026-01-03,102040.0,Freelance Side,salaried,True
+48,3,2026-02-02,91270.0,Freelance Side,salaried,True
+49,3,2026-03-01,96110.0,Bonus,salaried,True
+50,3,2026-04-01,154330.0,Overtime,salaried,True
+51,3,2026-05-01,97670.0,Employer Payroll,salaried,True
+52,3,2026-06-01,155720.0,Employer Payroll,salaried,True
+53,3,2026-07-03,103040.0,Overtime,salaried,True
+54,3,2026-08-02,104870.0,Overtime,salaried,True
+55,4,2025-03-17,67480.0,Client Payment,freelance,False
+56,4,2025-04-09,113010.0,Upwork Payout,freelance,False
+57,4,2025-05-05,63490.0,Client Payment,freelance,False
+58,4,2025-06-27,108620.0,Client Payment,freelance,False
+59,4,2025-07-01,81810.0,Client Payment,freelance,False
+60,4,2025-08-28,70780.0,Client Payment,freelance,False
+61,4,2025-09-12,83670.0,Upwork Payout,freelance,False
+62,4,2025-10-25,76930.0,Client Payment,freelance,False
+63,4,2025-11-27,74920.0,Client Payment,freelance,False
+64,4,2025-12-02,50850.0,Upwork Payout,freelance,False
+65,4,2026-01-07,58020.0,Upwork Payout,freelance,False
+66,4,2026-02-21,50310.0,Client Payment,freelance,False
+67,4,2026-03-28,72260.0,Client Payment,freelance,False
+68,4,2026-04-16,122420.0,Royalty,freelance,False
+69,4,2026-05-06,41090.0,Royalty,freelance,False
+70,4,2026-06-11,126710.0,Client Payment,freelance,False
+71,4,2026-07-23,73040.0,Client Payment,freelance,False
+72,4,2026-08-05,86150.0,Upwork Payout,freelance,False
+73,5,2025-03-15,189950.0,Client Payment,business,False
+74,5,2025-04-19,132370.0,Rental Income,business,False
+75,5,2025-05-07,237530.0,Rental Income,business,False
+76,5,2025-06-23,305600.0,Business Revenue,business,False
+77,5,2025-07-25,192950.0,Business Revenue,business,False
+78,5,2025-08-06,194250.0,Client Payment,business,False
+79,5,2025-09-27,216420.0,Business Revenue,business,False
+80,5,2025-10-19,128100.0,Business Revenue,business,False
+81,5,2025-11-13,295360.0,Client Payment,business,False
+82,5,2025-12-14,190140.0,Business Revenue,business,False
+83,5,2026-01-25,192750.0,Rental Income,business,False
+84,5,2026-02-08,185740.0,Client Payment,business,False
+85,5,2026-03-22,213820.0,Business Revenue,business,False
+86,5,2026-04-12,332030.0,Rental Income,business,False
+87,5,2026-05-28,198420.0,Rental Income,business,False
+88,5,2026-06-11,324030.0,Business Revenue,business,False
+89,5,2026-07-25,199460.0,Business Revenue,business,False
+90,5,2026-08-16,201240.0,Business Revenue,business,False
+91,6,2025-03-02,90100.0,Bonus,salaried,True
+92,6,2025-04-02,154190.0,Employer Payroll,salaried,True
+93,6,2025-05-02,108840.0,Employer Payroll,salaried,True
+94,6,2025-06-01,163540.0,Employer Payroll,salaried,True
+95,6,2025-07-03,105350.0,Employer Payroll,salaried,True
+96,6,2025-08-03,100920.0,Freelance Side,salaried,True
+97,6,2025-09-01,110790.0,Freelance Side,salaried,True
+98,6,2025-10-01,114980.0,Employer Payroll,salaried,True
+99,6,2025-11-01,114030.0,Employer Payroll,salaried,True
+100,6,2025-12-03,106270.0,Bonus,salaried,True
+101,6,2026-01-01,104760.0,Employer Payroll,salaried,True
+102,6,2026-02-03,101600.0,Bonus,salaried,True
+103,6,2026-03-03,98880.0,Employer Payroll,salaried,True
+104,6,2026-04-01,155400.0,Overtime,salaried,True
+105,6,2026-05-02,107870.0,Employer Payroll,salaried,True
+106,6,2026-06-03,163310.0,Overtime,salaried,True
+107,6,2026-07-03,11230.0,Overtime,salaried,True
+108,6,2026-08-03,12080.0,Overtime,salaried,True
+109,7,2025-03-08,116170.0,Royalty,freelance,False
+110,7,2025-04-11,206650.0,Client Payment,freelance,False
+111,7,2025-05-18,99940.0,Royalty,freelance,False
+112,7,2025-06-25,161650.0,Royalty,freelance,False
+113,7,2025-07-09,123520.0,Upwork Payout,freelance,False
+114,7,2025-08-22,86870.0,Client Payment,freelance,False
+115,7,2025-09-05,23560.0,Client Payment,freelance,False
+116,7,2025-10-14,322750.0,Client Payment,freelance,False
+117,7,2025-11-27,152220.0,Royalty,freelance,False
+118,7,2025-12-14,183330.0,Client Payment,freelance,False
+119,7,2026-01-05,34530.0,Client Payment,freelance,False
+120,7,2026-02-07,24860.0,Client Payment,freelance,False
+121,7,2026-03-26,158730.0,Client Payment,freelance,False
+122,7,2026-04-23,271210.0,Client Payment,freelance,False
+123,7,2026-05-15,7270.0,Client Payment,freelance,False
+124,7,2026-06-16,326170.0,Royalty,freelance,False
+125,7,2026-07-02,46340.0,Royalty,freelance,False
+126,7,2026-08-14,243030.0,Client Payment,freelance,False
+127,8,2025-03-01,144600.0,Employer Payroll,salaried,True
+128,8,2025-04-03,235150.0,Freelance Side,salaried,True
+129,8,2025-05-03,163600.0,Employer Payroll,salaried,True
+130,8,2025-06-03,228690.0,Freelance Side,salaried,True
+131,8,2025-07-03,156560.0,Employer Payroll,salaried,True
+132,8,2025-08-01,154900.0,Freelance Side,salaried,True
+133,8,2025-09-03,162640.0,Bonus,salaried,True
+134,8,2025-10-03,136000.0,Employer Payroll,salaried,True
+135,8,2025-11-01,238870.0,Employer Payroll,salaried,True
+136,8,2025-12-01,151700.0,Freelance Side,salaried,True
+137,8,2026-01-01,170610.0,Freelance Side,salaried,True
+138,8,2026-02-03,160040.0,Employer Payroll,salaried,True
+139,8,2026-03-02,156000.0,Employer Payroll,salaried,True
+140,8,2026-04-01,254400.0,Bonus,salaried,True
+141,8,2026-05-03,169310.0,Employer Payroll,salaried,True
+142,8,2026-06-03,257430.0,Employer Payroll,salaried,True
+143,8,2026-07-01,175580.0,Employer Payroll,salaried,True
+144,8,2026-08-03,173140.0,Freelance Side,salaried,True
+145,9,2025-03-02,210940.0,Bonus,salaried,True
+146,9,2025-04-01,294120.0,Overtime,salaried,True
+147,9,2025-05-02,227410.0,Overtime,salaried,True
+148,9,2025-06-02,381880.0,Employer Payroll,salaried,True
+149,9,2025-07-03,129150.0,Bonus,salaried,True
+150,9,2025-08-03,229070.0,Employer Payroll,salaried,True
+151,9,2025-09-03,222610.0,Freelance Side,salaried,True
+152,9,2025-10-03,162120.0,Bonus,salaried,True
+153,9,2025-11-01,368900.0,Freelance Side,salaried,True
+154,9,2025-12-01,219950.0,Employer Payroll,salaried,True
+155,9,2026-01-03,248170.0,Bonus,salaried,True
+156,9,2026-02-01,232360.0,Freelance Side,salaried,True
+157,9,2026-03-01,240870.0,Employer Payroll,salaried,True
+158,9,2026-04-01,99070.0,Overtime,salaried,True
+159,9,2026-05-02,319110.0,Employer Payroll,salaried,True
+160,9,2026-06-03,389560.0,Bonus,salaried,True
+161,9,2026-07-03,275780.0,Freelance Side,salaried,True
+162,9,2026-08-03,246270.0,Freelance Side,salaried,True
+163,10,2025-03-01,225190.0,Overtime,salaried,True
+164,10,2025-04-01,356930.0,Bonus,salaried,True
+165,10,2025-05-01,229900.0,Bonus,salaried,True
+166,10,2025-06-03,347670.0,Employer Payroll,salaried,True
+167,10,2025-07-03,223030.0,Employer Payroll,salaried,True
+168,10,2025-08-03,223100.0,Bonus,salaried,True
+169,10,2025-09-02,244520.0,Overtime,salaried,True
+170,10,2025-10-03,243370.0,Overtime,salaried,True
+171,10,2025-11-02,361440.0,Employer Payroll,salaried,True
+172,10,2025-12-03,252040.0,Overtime,salaried,True
+173,10,2026-01-01,242240.0,Employer Payroll,salaried,True
+174,10,2026-02-02,248510.0,Employer Payroll,salaried,True
+175,10,2026-03-02,241390.0,Bonus,salaried,True
+176,10,2026-04-02,360480.0,Overtime,salaried,True
+177,10,2026-05-03,245670.0,Bonus,salaried,True
+178,10,2026-06-02,382300.0,Overtime,salaried,True
+179,10,2026-07-02,263760.0,Overtime,salaried,True
+180,10,2026-08-01,247860.0,Bonus,salaried,True
+181,11,2025-03-24,181000.0,Client Payment,freelance,False
+182,11,2025-04-19,303970.0,Royalty,freelance,False
+183,11,2025-05-13,53750.0,Upwork Payout,freelance,False
+184,11,2025-06-04,346220.0,Royalty,freelance,False
+185,11,2025-07-03,157900.0,Upwork Payout,freelance,False
+186,11,2025-08-20,182960.0,Client Payment,freelance,False
+187,11,2025-09-03,183570.0,Client Payment,freelance,False
+188,11,2025-10-10,39670.0,Client Payment,freelance,False
+189,11,2025-11-25,212400.0,Royalty,freelance,False
+190,11,2025-12-21,156530.0,Client Payment,freelance,False
+191,11,2026-01-11,100480.0,Upwork Payout,freelance,False
+192,11,2026-02-04,250060.0,Client Payment,freelance,False
+193,11,2026-03-05,240660.0,Upwork Payout,freelance,False
+194,11,2026-04-07,146300.0,Client Payment,freelance,False
+195,11,2026-05-22,180500.0,Client Payment,freelance,False
+196,11,2026-06-19,144160.0,Royalty,freelance,False
+197,11,2026-07-17,229970.0,Royalty,freelance,False
+198,11,2026-08-01,130090.0,Upwork Payout,freelance,False
+199,12,2025-03-03,106840.0,Employer Payroll,salaried,True
+200,12,2025-04-01,328160.0,Freelance Side,salaried,True
+201,12,2025-05-03,246270.0,Bonus,salaried,True
+202,12,2025-06-03,334590.0,Overtime,salaried,True
+203,12,2025-07-02,215230.0,Freelance Side,salaried,True
+204,12,2025-08-02,243020.0,Freelance Side,salaried,True
+205,12,2025-09-03,224160.0,Employer Payroll,salaried,True
+206,12,2025-10-02,159650.0,Freelance Side,salaried,True
+207,12,2025-11-01,335970.0,Bonus,salaried,True
+208,12,2025-12-02,269510.0,Bonus,salaried,True
+209,12,2026-01-03,236550.0,Bonus,salaried,True
+210,12,2026-02-02,241970.0,Overtime,salaried,True
+211,12,2026-03-03,237350.0,Freelance Side,salaried,True
+212,12,2026-04-03,359060.0,Freelance Side,salaried,True
+213,12,2026-05-03,245180.0,Bonus,salaried,True
+214,12,2026-06-03,357750.0,Bonus,salaried,True
+215,12,2026-07-01,270920.0,Freelance Side,salaried,True
+216,12,2026-08-03,213650.0,Employer Payroll,salaried,True
+217,13,2025-03-24,274070.0,Business Revenue,business,False
+218,13,2025-04-02,436340.0,Rental Income,business,False
+219,13,2025-05-05,292560.0,Business Revenue,business,False
+220,13,2025-06-15,467210.0,Business Revenue,business,False
+221,13,2025-07-27,306190.0,Business Revenue,business,False
+222,13,2025-08-17,299530.0,Business Revenue,business,False
+223,13,2025-09-14,289380.0,Business Revenue,business,False
+224,13,2025-10-27,334200.0,Rental Income,business,False
+225,13,2025-11-22,467120.0,Client Payment,business,False
+226,13,2025-12-22,348070.0,Business Revenue,business,False
+227,13,2026-01-20,285990.0,Business Revenue,business,False
+228,13,2026-02-15,337760.0,Business Revenue,business,False
+229,13,2026-03-08,310090.0,Business Revenue,business,False
+230,13,2026-04-19,449230.0,Rental Income,business,False
+231,13,2026-05-07,317220.0,Rental Income,business,False
+232,13,2026-06-03,467780.0,Rental Income,business,False
+233,13,2026-07-21,313820.0,Client Payment,business,False
+234,13,2026-08-08,298160.0,Business Revenue,business,False
+235,14,2025-03-21,112190.0,Rental Income,business,False
+236,14,2025-04-09,170420.0,Client Payment,business,False
+237,14,2025-05-23,129940.0,Business Revenue,business,False
+238,14,2025-06-05,168890.0,Rental Income,business,False
+239,14,2025-07-23,136320.0,Business Revenue,business,False
+240,14,2025-08-25,111750.0,Business Revenue,business,False
+241,14,2025-09-04,173640.0,Client Payment,business,False
+242,14,2025-10-16,99730.0,Rental Income,business,False
+243,14,2025-11-12,170340.0,Business Revenue,business,False
+244,14,2025-12-14,82270.0,Client Payment,business,False
+245,14,2026-01-04,39260.0,Rental Income,business,False
+246,14,2026-02-09,458170.0,Rental Income,business,False
+247,14,2026-03-27,83670.0,Rental Income,business,False
+248,14,2026-04-17,193770.0,Rental Income,business,False
+249,14,2026-05-21,58290.0,Rental Income,business,False
+250,14,2026-06-26,248720.0,Rental Income,business,False
+251,14,2026-07-23,197630.0,Business Revenue,business,False
+252,14,2026-08-22,54330.0,Client Payment,business,False
+253,15,2025-03-01,88520.0,Employer Payroll,salaried,True
+254,15,2025-04-03,154830.0,Employer Payroll,salaried,True
+255,15,2025-05-03,82630.0,Employer Payroll,salaried,True
+256,15,2025-06-02,156510.0,Employer Payroll,salaried,True
+257,15,2025-07-03,84130.0,Employer Payroll,salaried,True
+258,15,2025-08-02,91650.0,Employer Payroll,salaried,True
+259,15,2025-09-03,77920.0,Freelance Side,salaried,True
+260,15,2025-10-03,80930.0,Freelance Side,salaried,True
+261,15,2025-11-02,157330.0,Employer Payroll,salaried,True
+262,15,2025-12-03,91160.0,Employer Payroll,salaried,True
+263,15,2026-01-03,100050.0,Bonus,salaried,True
+264,15,2026-02-01,88030.0,Bonus,salaried,True
+265,15,2026-03-02,95160.0,Employer Payroll,salaried,True
+266,15,2026-04-01,152440.0,Bonus,salaried,True
+267,15,2026-05-01,104980.0,Overtime,salaried,True
+268,15,2026-06-03,149990.0,Employer Payroll,salaried,True
+269,15,2026-07-03,101630.0,Employer Payroll,salaried,True
+270,15,2026-08-03,93000.0,Employer Payroll,salaried,True
+271,16,2025-03-19,199300.0,Royalty,freelance,False
+272,16,2025-04-06,307600.0,Upwork Payout,freelance,False
+273,16,2025-05-01,236490.0,Royalty,freelance,False
+274,16,2025-06-21,315150.0,Client Payment,freelance,False
+275,16,2025-07-16,215150.0,Upwork Payout,freelance,False
+276,16,2025-08-01,229800.0,Client Payment,freelance,False
+277,16,2025-09-13,228340.0,Royalty,freelance,False
+278,16,2025-10-14,242480.0,Client Payment,freelance,False
+279,16,2025-11-02,332070.0,Royalty,freelance,False
+280,16,2025-12-17,225210.0,Client Payment,freelance,False
+281,16,2026-01-22,222220.0,Client Payment,freelance,False
+282,16,2026-02-10,106660.0,Upwork Payout,freelance,False
+283,16,2026-03-02,232820.0,Upwork Payout,freelance,False
+284,16,2026-04-04,331710.0,Client Payment,freelance,False
+285,16,2026-05-11,223080.0,Royalty,freelance,False
+286,16,2026-06-13,332030.0,Client Payment,freelance,False
+287,16,2026-07-04,228060.0,Upwork Payout,freelance,False
+288,16,2026-08-08,249040.0,Royalty,freelance,False
+289,17,2025-03-26,97170.0,Rental Income,mixed,False
+290,17,2025-04-09,159980.0,Dividend,mixed,False
+291,17,2025-05-08,91420.0,Employer Payroll,mixed,False
+292,17,2025-06-08,166710.0,Dividend,mixed,False
+293,17,2025-07-24,95330.0,Rental Income,mixed,False
+294,17,2025-08-21,97390.0,Dividend,mixed,False
+295,17,2025-09-21,99570.0,Rental Income,mixed,False
+296,17,2025-10-16,102220.0,Employer Payroll,mixed,False
+297,17,2025-11-03,163200.0,Business Revenue,mixed,False
+298,17,2025-12-20,99750.0,Dividend,mixed,False
+299,17,2026-01-25,96830.0,Rental Income,mixed,False
+300,17,2026-02-04,107590.0,Rental Income,mixed,False
+301,17,2026-03-10,101830.0,Dividend,mixed,False
+302,17,2026-04-10,166760.0,Rental Income,mixed,False
+303,17,2026-05-01,96790.0,Rental Income,mixed,False
+304,17,2026-06-17,167590.0,Employer Payroll,mixed,False
+305,17,2026-07-24,110380.0,Business Revenue,mixed,False
+306,17,2026-08-05,111890.0,Business Revenue,mixed,False
+307,18,2025-03-01,85090.0,Overtime,salaried,True
+308,18,2025-04-01,140280.0,Employer Payroll,salaried,True
+309,18,2025-05-01,94990.0,Overtime,salaried,True
+310,18,2025-06-02,133320.0,Freelance Side,salaried,True
+311,18,2025-07-03,90290.0,Employer Payroll,salaried,True
+312,18,2025-08-03,96850.0,Overtime,salaried,True
+313,18,2025-09-02,99640.0,Freelance Side,salaried,True
+314,18,2025-10-03,85940.0,Employer Payroll,salaried,True
+315,18,2025-11-01,137100.0,Overtime,salaried,True
+316,18,2025-12-03,101500.0,Employer Payroll,salaried,True
+317,18,2026-01-01,92840.0,Freelance Side,salaried,True
+318,18,2026-02-01,97670.0,Employer Payroll,salaried,True
+319,18,2026-03-03,89570.0,Overtime,salaried,True
+320,18,2026-04-02,152460.0,Employer Payroll,salaried,True
+321,18,2026-05-02,99280.0,Bonus,salaried,True
+322,18,2026-06-02,155040.0,Bonus,salaried,True
+323,18,2026-07-01,92530.0,Employer Payroll,salaried,True
+324,18,2026-08-01,5620.0,Freelance Side,salaried,True
+325,19,2025-03-01,132710.0,Freelance Side,salaried,True
+326,19,2025-04-01,230450.0,Employer Payroll,salaried,True
+327,19,2025-05-02,133390.0,Bonus,salaried,True
+328,19,2025-06-03,241650.0,Overtime,salaried,True
+329,19,2025-07-03,137520.0,Bonus,salaried,True
+330,19,2025-08-01,144540.0,Overtime,salaried,True
+331,19,2025-09-03,140500.0,Bonus,salaried,True
+332,19,2025-10-03,148870.0,Employer Payroll,salaried,True
+333,19,2025-11-01,250400.0,Bonus,salaried,True
+334,19,2025-12-01,153960.0,Overtime,salaried,True
+335,19,2026-01-01,155350.0,Employer Payroll,salaried,True
+336,19,2026-02-03,148520.0,Overtime,salaried,True
+337,19,2026-03-03,155850.0,Employer Payroll,salaried,True
+338,19,2026-04-01,246430.0,Bonus,salaried,True
+339,19,2026-05-02,146070.0,Employer Payroll,salaried,True
+340,19,2026-06-01,240910.0,Overtime,salaried,True
+341,19,2026-07-02,153540.0,Employer Payroll,salaried,True
+342,19,2026-08-02,156910.0,Overtime,salaried,True
+343,20,2025-03-19,135200.0,Dividend,rental,False
+344,20,2025-04-22,191430.0,Rental Income,rental,False
+345,20,2025-05-09,135660.0,Dividend,rental,False
+346,20,2025-06-10,135060.0,Pension,rental,False
+347,20,2025-07-25,126920.0,Rental Income,rental,False
+348,20,2025-08-26,144230.0,Rental Income,rental,False
+349,20,2025-09-08,126850.0,Rental Income,rental,False
+350,20,2025-10-04,124040.0,Rental Income,rental,False
+351,20,2025-11-26,193110.0,Rental Income,rental,False
+352,20,2025-12-21,146790.0,Rental Income,rental,False
+353,20,2026-01-17,140560.0,Rental Income,rental,False
+354,20,2026-02-15,129160.0,Rental Income,rental,False
+355,20,2026-03-03,130550.0,Pension,rental,False
+356,20,2026-04-16,187710.0,Rental Income,rental,False
+357,20,2026-05-14,133880.0,Pension,rental,False
+358,20,2026-06-26,215990.0,Rental Income,rental,False
+359,20,2026-07-09,124040.0,Rental Income,rental,False
+360,20,2026-08-23,145100.0,Rental Income,rental,False
+361,21,2025-03-26,369710.0,Client Payment,freelance,False
+362,21,2025-04-27,654920.0,Client Payment,freelance,False
+363,21,2025-05-28,71510.0,Client Payment,freelance,False
+364,21,2025-06-23,484740.0,Client Payment,freelance,False
+365,21,2025-07-13,69430.0,Royalty,freelance,False
+366,21,2025-08-13,52830.0,Client Payment,freelance,False
+367,21,2025-09-22,56930.0,Upwork Payout,freelance,False
+368,21,2025-10-23,261980.0,Royalty,freelance,False
+369,21,2025-11-02,206810.0,Upwork Payout,freelance,False
+370,21,2025-12-25,87230.0,Royalty,freelance,False
+371,21,2026-01-21,89110.0,Client Payment,freelance,False
+372,21,2026-02-19,297670.0,Royalty,freelance,False
+373,21,2026-03-09,216060.0,Upwork Payout,freelance,False
+374,21,2026-04-27,229000.0,Royalty,freelance,False
+375,21,2026-05-11,149760.0,Client Payment,freelance,False
+376,21,2026-06-04,342190.0,Client Payment,freelance,False
+377,21,2026-07-04,435860.0,Upwork Payout,freelance,False
+378,21,2026-08-23,69890.0,Royalty,freelance,False
+379,22,2025-03-02,163430.0,Bonus,salaried,True
+380,22,2025-04-02,222380.0,Employer Payroll,salaried,True
+381,22,2025-05-03,178190.0,Employer Payroll,salaried,True
+382,22,2025-06-02,239560.0,Overtime,salaried,True
+383,22,2025-07-02,174090.0,Bonus,salaried,True
+384,22,2025-08-01,172700.0,Employer Payroll,salaried,True
+385,22,2025-09-03,166800.0,Employer Payroll,salaried,True
+386,22,2025-10-01,178060.0,Bonus,salaried,True
+387,22,2025-11-03,227010.0,Employer Payroll,salaried,True
+388,22,2025-12-03,177950.0,Freelance Side,salaried,True
+389,22,2026-01-02,169830.0,Employer Payroll,salaried,True
+390,22,2026-02-01,188600.0,Bonus,salaried,True
+391,22,2026-03-01,175970.0,Bonus,salaried,True
+392,22,2026-04-01,221160.0,Employer Payroll,salaried,True
+393,22,2026-05-01,181290.0,Bonus,salaried,True
+394,22,2026-06-02,226730.0,Bonus,salaried,True
+395,22,2026-07-01,188700.0,Bonus,salaried,True
+396,22,2026-08-03,197460.0,Employer Payroll,salaried,True
+397,23,2025-03-20,106920.0,Business Revenue,business,False
+398,23,2025-04-17,236910.0,Client Payment,business,False
+399,23,2025-05-26,150240.0,Business Revenue,business,False
+400,23,2025-06-10,235350.0,Business Revenue,business,False
+401,23,2025-07-04,181350.0,Rental Income,business,False
+402,23,2025-08-04,170900.0,Business Revenue,business,False
+403,23,2025-09-01,151590.0,Business Revenue,business,False
+404,23,2025-10-21,153010.0,Business Revenue,business,False
+405,23,2025-11-07,247680.0,Business Revenue,business,False
+406,23,2025-12-06,164580.0,Client Payment,business,False
+407,23,2026-01-04,165540.0,Business Revenue,business,False
+408,23,2026-02-24,171560.0,Client Payment,business,False
+409,23,2026-03-11,155690.0,Rental Income,business,False
+410,23,2026-04-14,240280.0,Client Payment,business,False
+411,23,2026-05-06,178320.0,Rental Income,business,False
+412,23,2026-06-28,253140.0,Business Revenue,business,False
+413,23,2026-07-08,167020.0,Client Payment,business,False
+414,23,2026-08-24,169400.0,Rental Income,business,False
+415,24,2025-03-01,132750.0,Overtime,salaried,True
+416,24,2025-04-01,203880.0,Bonus,salaried,True
+417,24,2025-05-03,122120.0,Overtime,salaried,True
+418,24,2025-06-03,191980.0,Employer Payroll,salaried,True
+419,24,2025-07-03,140400.0,Overtime,salaried,True
+420,24,2025-08-02,120840.0,Bonus,salaried,True
+421,24,2025-09-03,158600.0,Bonus,salaried,True
+422,24,2025-10-03,124160.0,Employer Payroll,salaried,True
+423,24,2025-11-03,204290.0,Bonus,salaried,True
+424,24,2025-12-02,151810.0,Overtime,salaried,True
+425,24,2026-01-03,157990.0,Freelance Side,salaried,True
+426,24,2026-02-03,143050.0,Freelance Side,salaried,True
+427,24,2026-03-03,116200.0,Overtime,salaried,True
+428,24,2026-04-03,217260.0,Employer Payroll,salaried,True
+429,24,2026-05-02,124320.0,Employer Payroll,salaried,True
+430,24,2026-06-01,216020.0,Bonus,salaried,True
+431,24,2026-07-03,160800.0,Employer Payroll,salaried,True
+432,24,2026-08-03,161860.0,Employer Payroll,salaried,True
+433,25,2025-03-05,94480.0,Dividend,rental,False
+434,25,2025-04-06,141320.0,Rental Income,rental,False
+435,25,2025-05-18,100500.0,Pension,rental,False
+436,25,2025-06-08,138520.0,Rental Income,rental,False
+437,25,2025-07-03,94850.0,Dividend,rental,False
+438,25,2025-08-23,108810.0,Rental Income,rental,False
+439,25,2025-09-12,103840.0,Rental Income,rental,False
+440,25,2025-10-27,111270.0,Rental Income,rental,False
+441,25,2025-11-05,150330.0,Dividend,rental,False
+442,25,2025-12-19,106480.0,Pension,rental,False
+443,25,2026-01-06,111530.0,Rental Income,rental,False
+444,25,2026-02-12,111740.0,Pension,rental,False
+445,25,2026-03-01,122360.0,Pension,rental,False
+446,25,2026-04-12,157990.0,Pension,rental,False
+447,25,2026-05-13,105020.0,Rental Income,rental,False
+448,25,2026-06-20,151700.0,Dividend,rental,False
+449,25,2026-07-13,103330.0,Pension,rental,False
+450,25,2026-08-09,114770.0,Dividend,rental,False
+451,26,2025-03-02,65190.0,Rental Income,business,False
+452,26,2025-04-24,75950.0,Business Revenue,business,False
+453,26,2025-05-27,32020.0,Client Payment,business,False
+454,26,2025-06-26,190530.0,Rental Income,business,False
+455,26,2025-07-14,38790.0,Business Revenue,business,False
+456,26,2025-08-24,88420.0,Rental Income,business,False
+457,26,2025-09-01,69730.0,Business Revenue,business,False
+458,26,2025-10-23,12670.0,Business Revenue,business,False
+459,26,2025-11-22,125510.0,Business Revenue,business,False
+460,26,2025-12-09,79030.0,Business Revenue,business,False
+461,26,2026-01-21,175600.0,Business Revenue,business,False
+462,26,2026-02-04,91260.0,Business Revenue,business,False
+463,26,2026-03-04,140800.0,Rental Income,business,False
+464,26,2026-04-18,128610.0,Rental Income,business,False
+465,26,2026-05-14,119990.0,Rental Income,business,False
+466,26,2026-06-28,87420.0,Business Revenue,business,False
+467,26,2026-07-25,46260.0,Client Payment,business,False
+468,26,2026-08-22,47850.0,Rental Income,business,False
+469,27,2025-03-25,87560.0,Pension,rental,False
+470,27,2025-04-28,123040.0,Dividend,rental,False
+471,27,2025-05-16,85680.0,Rental Income,rental,False
+472,27,2025-06-17,125700.0,Rental Income,rental,False
+473,27,2025-07-04,87100.0,Rental Income,rental,False
+474,27,2025-08-25,90360.0,Pension,rental,False
+475,27,2025-09-06,92720.0,Dividend,rental,False
+476,27,2025-10-18,91500.0,Rental Income,rental,False
+477,27,2025-11-03,135200.0,Dividend,rental,False
+478,27,2025-12-14,86940.0,Rental Income,rental,False
+479,27,2026-01-27,85660.0,Rental Income,rental,False
+480,27,2026-02-27,87770.0,Rental Income,rental,False
+481,27,2026-03-01,89520.0,Dividend,rental,False
+482,27,2026-04-12,136340.0,Dividend,rental,False
+483,27,2026-05-10,94730.0,Rental Income,rental,False
+484,27,2026-06-15,136610.0,Rental Income,rental,False
+485,27,2026-07-07,84940.0,Rental Income,rental,False
+486,27,2026-08-09,100200.0,Pension,rental,False
+487,28,2025-03-02,141190.0,Employer Payroll,salaried,True
+488,28,2025-04-03,205830.0,Freelance Side,salaried,True
+489,28,2025-05-02,141580.0,Employer Payroll,salaried,True
+490,28,2025-06-01,216740.0,Overtime,salaried,True
+491,28,2025-07-03,148280.0,Overtime,salaried,True
+492,28,2025-08-02,152350.0,Employer Payroll,salaried,True
+493,28,2025-09-03,166870.0,Employer Payroll,salaried,True
+494,28,2025-10-03,142780.0,Employer Payroll,salaried,True
+495,28,2025-11-02,236350.0,Bonus,salaried,True
+496,28,2025-12-02,155510.0,Freelance Side,salaried,True
+497,28,2026-01-03,152640.0,Overtime,salaried,True
+498,28,2026-02-02,139410.0,Bonus,salaried,True
+499,28,2026-03-01,154590.0,Overtime,salaried,True
+500,28,2026-04-03,233130.0,Bonus,salaried,True
+501,28,2026-05-01,150470.0,Employer Payroll,salaried,True
+502,28,2026-06-03,217950.0,Bonus,salaried,True
+503,28,2026-07-01,150240.0,Bonus,salaried,True
+504,28,2026-08-01,162670.0,Employer Payroll,salaried,True
+505,29,2025-03-11,132810.0,Client Payment,business,False
+506,29,2025-04-09,203850.0,Business Revenue,business,False
+507,29,2025-05-03,130870.0,Business Revenue,business,False
+508,29,2025-06-07,199800.0,Business Revenue,business,False
+509,29,2025-07-08,80680.0,Business Revenue,business,False
+510,29,2025-08-13,102960.0,Rental Income,business,False
+511,29,2025-09-06,144840.0,Client Payment,business,False
+512,29,2025-10-12,135900.0,Business Revenue,business,False
+513,29,2025-11-12,201790.0,Business Revenue,business,False
+514,29,2025-12-03,130830.0,Client Payment,business,False
+515,29,2026-01-25,133780.0,Business Revenue,business,False
+516,29,2026-02-07,137220.0,Business Revenue,business,False
+517,29,2026-03-27,134000.0,Client Payment,business,False
+518,29,2026-04-07,198790.0,Client Payment,business,False
+519,29,2026-05-25,154340.0,Client Payment,business,False
+520,29,2026-06-04,202030.0,Business Revenue,business,False
+521,29,2026-07-16,146910.0,Business Revenue,business,False
+522,29,2026-08-19,157800.0,Client Payment,business,False
+523,30,2025-03-15,84830.0,Upwork Payout,freelance,False
+524,30,2025-04-20,112870.0,Client Payment,freelance,False
+525,30,2025-05-09,83240.0,Client Payment,freelance,False
+526,30,2025-06-22,123990.0,Client Payment,freelance,False
+527,30,2025-07-28,95190.0,Upwork Payout,freelance,False
+528,30,2025-08-22,105470.0,Royalty,freelance,False
+529,30,2025-09-25,106790.0,Royalty,freelance,False
+530,30,2025-10-15,81160.0,Client Payment,freelance,False
+531,30,2025-11-06,126640.0,Client Payment,freelance,False
+532,30,2025-12-24,110820.0,Client Payment,freelance,False
+533,30,2026-01-11,97070.0,Client Payment,freelance,False
+534,30,2026-02-08,96950.0,Client Payment,freelance,False
+535,30,2026-03-11,88240.0,Client Payment,freelance,False
+536,30,2026-04-19,135490.0,Upwork Payout,freelance,False
+537,30,2026-05-06,91220.0,Client Payment,freelance,False
+538,30,2026-06-17,129700.0,Royalty,freelance,False
+539,30,2026-07-23,98440.0,Royalty,freelance,False
+540,30,2026-08-14,106100.0,Client Payment,freelance,False
+541,31,2025-03-02,242150.0,Bonus,salaried,True
+542,31,2025-04-03,418980.0,Employer Payroll,salaried,True
+543,31,2025-05-01,272300.0,Overtime,salaried,True
+544,31,2025-06-01,429280.0,Freelance Side,salaried,True
+545,31,2025-07-01,273890.0,Employer Payroll,salaried,True
+546,31,2025-08-01,246960.0,Overtime,salaried,True
+547,31,2025-09-01,289220.0,Employer Payroll,salaried,True
+548,31,2025-10-01,272380.0,Employer Payroll,salaried,True
+549,31,2025-11-01,463050.0,Employer Payroll,salaried,True
+550,31,2025-12-03,281250.0,Overtime,salaried,True
+551,31,2026-01-03,240220.0,Overtime,salaried,True
+552,31,2026-02-03,225530.0,Employer Payroll,salaried,True
+553,31,2026-03-03,293120.0,Bonus,salaried,True
+554,31,2026-04-03,439810.0,Bonus,salaried,True
+555,31,2026-05-02,268250.0,Employer Payroll,salaried,True
+556,31,2026-06-02,436990.0,Freelance Side,salaried,True
+557,31,2026-07-02,269210.0,Overtime,salaried,True
+558,31,2026-08-01,287940.0,Employer Payroll,salaried,True
+559,32,2025-03-02,173670.0,Overtime,salaried,True
+560,32,2025-04-02,263870.0,Employer Payroll,salaried,True
+561,32,2025-05-02,155520.0,Overtime,salaried,True
+562,32,2025-06-03,272120.0,Freelance Side,salaried,True
+563,32,2025-07-01,174000.0,Bonus,salaried,True
+564,32,2025-08-02,168820.0,Employer Payroll,salaried,True
+565,32,2025-09-02,165340.0,Employer Payroll,salaried,True
+566,32,2025-10-01,166110.0,Bonus,salaried,True
+567,32,2025-11-01,282610.0,Overtime,salaried,True
+568,32,2025-12-03,173200.0,Bonus,salaried,True
+569,32,2026-01-03,187500.0,Employer Payroll,salaried,True
+570,32,2026-02-02,178030.0,Bonus,salaried,True
+571,32,2026-03-01,187450.0,Overtime,salaried,True
+572,32,2026-04-02,272650.0,Employer Payroll,salaried,True
+573,32,2026-05-01,174250.0,Employer Payroll,salaried,True
+574,32,2026-06-03,280140.0,Overtime,salaried,True
+575,32,2026-07-02,173180.0,Employer Payroll,salaried,True
+576,32,2026-08-01,177080.0,Employer Payroll,salaried,True
+577,33,2025-03-20,88280.0,Rental Income,business,False
+578,33,2025-04-19,137510.0,Business Revenue,business,False
+579,33,2025-05-08,87480.0,Client Payment,business,False
+580,33,2025-06-18,121500.0,Rental Income,business,False
+581,33,2025-07-17,52480.0,Business Revenue,business,False
+582,33,2025-08-14,88540.0,Business Revenue,business,False
+583,33,2025-09-26,87210.0,Business Revenue,business,False
+584,33,2025-10-18,102020.0,Business Revenue,business,False
+585,33,2025-11-24,142180.0,Rental Income,business,False
+586,33,2025-12-26,87460.0,Business Revenue,business,False
+587,33,2026-01-26,101450.0,Business Revenue,business,False
+588,33,2026-02-24,84780.0,Business Revenue,business,False
+589,33,2026-03-11,85140.0,Client Payment,business,False
+590,33,2026-04-20,141490.0,Business Revenue,business,False
+591,33,2026-05-05,85330.0,Business Revenue,business,False
+592,33,2026-06-14,131050.0,Client Payment,business,False
+593,33,2026-07-09,100920.0,Rental Income,business,False
+594,33,2026-08-16,89740.0,Business Revenue,business,False
+595,34,2025-03-01,416540.0,Business Revenue,business,False
+596,34,2025-04-18,455960.0,Business Revenue,business,False
+597,34,2025-05-04,81200.0,Business Revenue,business,False
+598,34,2025-06-20,451300.0,Business Revenue,business,False
+599,34,2025-07-18,392060.0,Business Revenue,business,False
+600,34,2025-08-03,357220.0,Client Payment,business,False
+601,34,2025-09-11,209340.0,Business Revenue,business,False
+602,34,2025-10-01,373390.0,Client Payment,business,False
+603,34,2025-11-14,246950.0,Business Revenue,business,False
+604,34,2025-12-09,250330.0,Business Revenue,business,False
+605,34,2026-01-02,281590.0,Business Revenue,business,False
+606,34,2026-02-05,376740.0,Client Payment,business,False
+607,34,2026-03-17,434360.0,Business Revenue,business,False
+608,34,2026-04-21,298080.0,Rental Income,business,False
+609,34,2026-05-26,234150.0,Business Revenue,business,False
+610,34,2026-06-14,386760.0,Business Revenue,business,False
+611,34,2026-07-06,241640.0,Business Revenue,business,False
+612,34,2026-08-12,318610.0,Rental Income,business,False
+613,35,2025-03-02,199640.0,Employer Payroll,salaried,True
+614,35,2025-04-03,297360.0,Overtime,salaried,True
+615,35,2025-05-01,189610.0,Bonus,salaried,True
+616,35,2025-06-01,332250.0,Bonus,salaried,True
+617,35,2025-07-03,181950.0,Employer Payroll,salaried,True
+618,35,2025-08-01,193610.0,Overtime,salaried,True
+619,35,2025-09-02,216290.0,Freelance Side,salaried,True
+620,35,2025-10-02,207780.0,Employer Payroll,salaried,True
+621,35,2025-11-02,304750.0,Bonus,salaried,True
+622,35,2025-12-03,215310.0,Bonus,salaried,True
+623,35,2026-01-02,198070.0,Freelance Side,salaried,True
+624,35,2026-02-03,202490.0,Bonus,salaried,True
+625,35,2026-03-03,216350.0,Employer Payroll,salaried,True
+626,35,2026-04-01,320290.0,Employer Payroll,salaried,True
+627,35,2026-05-01,188610.0,Freelance Side,salaried,True
+628,35,2026-06-03,294790.0,Freelance Side,salaried,True
+629,35,2026-07-02,205680.0,Employer Payroll,salaried,True
+630,35,2026-08-01,218090.0,Overtime,salaried,True
+631,36,2025-03-02,60730.0,Freelance Side,salaried,True
+632,36,2025-04-02,106380.0,Bonus,salaried,True
+633,36,2025-05-01,64280.0,Freelance Side,salaried,True
+634,36,2025-06-02,105610.0,Freelance Side,salaried,True
+635,36,2025-07-02,70470.0,Employer Payroll,salaried,True
+636,36,2025-08-03,79030.0,Overtime,salaried,True
+637,36,2025-09-02,63150.0,Bonus,salaried,True
+638,36,2025-10-02,73240.0,Employer Payroll,salaried,True
+639,36,2025-11-01,100120.0,Freelance Side,salaried,True
+640,36,2025-12-03,65680.0,Bonus,salaried,True
+641,36,2026-01-03,76510.0,Freelance Side,salaried,True
+642,36,2026-02-01,64530.0,Employer Payroll,salaried,True
+643,36,2026-03-01,75540.0,Overtime,salaried,True
+644,36,2026-04-01,96680.0,Freelance Side,salaried,True
+645,36,2026-05-02,63870.0,Overtime,salaried,True
+646,36,2026-06-02,108080.0,Overtime,salaried,True
+647,36,2026-07-03,86940.0,Overtime,salaried,True
+648,36,2026-08-03,74860.0,Employer Payroll,salaried,True
+649,37,2025-03-02,137570.0,Overtime,salaried,True
+650,37,2025-04-03,220240.0,Employer Payroll,salaried,True
+651,37,2025-05-01,142960.0,Employer Payroll,salaried,True
+652,37,2025-06-02,216260.0,Freelance Side,salaried,True
+653,37,2025-07-03,147820.0,Freelance Side,salaried,True
+654,37,2025-08-03,150710.0,Bonus,salaried,True
+655,37,2025-09-02,153360.0,Employer Payroll,salaried,True
+656,37,2025-10-02,143330.0,Employer Payroll,salaried,True
+657,37,2025-11-01,235000.0,Overtime,salaried,True
+658,37,2025-12-01,149480.0,Employer Payroll,salaried,True
+659,37,2026-01-02,142720.0,Employer Payroll,salaried,True
+660,37,2026-02-01,148080.0,Freelance Side,salaried,True
+661,37,2026-03-02,154940.0,Freelance Side,salaried,True
+662,37,2026-04-02,224380.0,Employer Payroll,salaried,True
+663,37,2026-05-02,157400.0,Freelance Side,salaried,True
+664,37,2026-06-01,225980.0,Employer Payroll,salaried,True
+665,37,2026-07-01,164770.0,Overtime,salaried,True
+666,37,2026-08-03,160230.0,Employer Payroll,salaried,True
+667,38,2025-03-02,206490.0,Employer Payroll,salaried,True
+668,38,2025-04-02,335250.0,Overtime,salaried,True
+669,38,2025-05-03,199610.0,Employer Payroll,salaried,True
+670,38,2025-06-01,320730.0,Freelance Side,salaried,True
+671,38,2025-07-02,225430.0,Freelance Side,salaried,True
+672,38,2025-08-03,223650.0,Employer Payroll,salaried,True
+673,38,2025-09-01,220280.0,Freelance Side,salaried,True
+674,38,2025-10-01,234980.0,Employer Payroll,salaried,True
+675,38,2025-11-02,322830.0,Employer Payroll,salaried,True
+676,38,2025-12-02,223820.0,Employer Payroll,salaried,True
+677,38,2026-01-03,212230.0,Bonus,salaried,True
+678,38,2026-02-01,226270.0,Overtime,salaried,True
+679,38,2026-03-01,210950.0,Employer Payroll,salaried,True
+680,38,2026-04-03,320670.0,Employer Payroll,salaried,True
+681,38,2026-05-01,231990.0,Overtime,salaried,True
+682,38,2026-06-01,325940.0,Employer Payroll,salaried,True
+683,38,2026-07-01,248470.0,Bonus,salaried,True
+684,38,2026-08-03,253960.0,Employer Payroll,salaried,True
+685,39,2025-03-03,95450.0,Overtime,salaried,True
+686,39,2025-04-01,136080.0,Freelance Side,salaried,True
+687,39,2025-05-02,96000.0,Overtime,salaried,True
+688,39,2025-06-02,124560.0,Bonus,salaried,True
+689,39,2025-07-01,87930.0,Bonus,salaried,True
+690,39,2025-08-01,96320.0,Freelance Side,salaried,True
+691,39,2025-09-02,88910.0,Employer Payroll,salaried,True
+692,39,2025-10-03,91530.0,Employer Payroll,salaried,True
+693,39,2025-11-03,134760.0,Employer Payroll,salaried,True
+694,39,2025-12-03,98100.0,Employer Payroll,salaried,True
+695,39,2026-01-03,88000.0,Overtime,salaried,True
+696,39,2026-02-01,97380.0,Employer Payroll,salaried,True
+697,39,2026-03-03,102860.0,Employer Payroll,salaried,True
+698,39,2026-04-03,139590.0,Employer Payroll,salaried,True
+699,39,2026-05-02,107980.0,Employer Payroll,salaried,True
+700,39,2026-06-03,135560.0,Bonus,salaried,True
+701,39,2026-07-03,107580.0,Bonus,salaried,True
+702,39,2026-08-01,114020.0,Employer Payroll,salaried,True
+703,40,2025-03-03,153170.0,Employer Payroll,salaried,True
+704,40,2025-04-02,255970.0,Bonus,salaried,True
+705,40,2025-05-02,157010.0,Employer Payroll,salaried,True
+706,40,2025-06-03,239130.0,Employer Payroll,salaried,True
+707,40,2025-07-02,148490.0,Employer Payroll,salaried,True
+708,40,2025-08-01,160550.0,Employer Payroll,salaried,True
+709,40,2025-09-02,146990.0,Overtime,salaried,True
+710,40,2025-10-02,157560.0,Overtime,salaried,True
+711,40,2025-11-01,260220.0,Overtime,salaried,True
+712,40,2025-12-03,165890.0,Employer Payroll,salaried,True
+713,40,2026-01-01,157870.0,Employer Payroll,salaried,True
+714,40,2026-02-03,165390.0,Freelance Side,salaried,True
+715,40,2026-03-02,160640.0,Freelance Side,salaried,True
+716,40,2026-04-01,272430.0,Bonus,salaried,True
+717,40,2026-05-01,158700.0,Employer Payroll,salaried,True
+718,40,2026-06-02,260450.0,Bonus,salaried,True
+719,40,2026-07-01,167570.0,Bonus,salaried,True
+720,40,2026-08-01,177470.0,Employer Payroll,salaried,True
+721,41,2025-03-03,98580.0,Employer Payroll,salaried,True
+722,41,2025-04-01,160820.0,Bonus,salaried,True
+723,41,2025-05-01,94260.0,Employer Payroll,salaried,True
+724,41,2025-06-02,117820.0,Freelance Side,salaried,True
+725,41,2025-07-03,59250.0,Employer Payroll,salaried,True
+726,41,2025-08-02,97590.0,Overtime,salaried,True
+727,41,2025-09-03,97780.0,Freelance Side,salaried,True
+728,41,2025-10-01,106770.0,Employer Payroll,salaried,True
+729,41,2025-11-03,158780.0,Freelance Side,salaried,True
+730,41,2025-12-03,55930.0,Overtime,salaried,True
+731,41,2026-01-03,102320.0,Employer Payroll,salaried,True
+732,41,2026-02-01,101740.0,Freelance Side,salaried,True
+733,41,2026-03-03,93230.0,Employer Payroll,salaried,True
+734,41,2026-04-03,160550.0,Employer Payroll,salaried,True
+735,41,2026-05-02,98840.0,Bonus,salaried,True
+736,41,2026-06-03,166930.0,Freelance Side,salaried,True
+737,41,2026-07-03,98460.0,Overtime,salaried,True
+738,41,2026-08-01,117050.0,Employer Payroll,salaried,True
+739,42,2025-03-21,123440.0,Rental Income,business,False
+740,42,2025-04-01,210700.0,Business Revenue,business,False
+741,42,2025-05-05,124910.0,Rental Income,business,False
+742,42,2025-06-21,200290.0,Client Payment,business,False
+743,42,2025-07-28,130400.0,Rental Income,business,False
+744,42,2025-08-07,118720.0,Business Revenue,business,False
+745,42,2025-09-21,104340.0,Business Revenue,business,False
+746,42,2025-10-12,128250.0,Business Revenue,business,False
+747,42,2025-11-21,142040.0,Business Revenue,business,False
+748,42,2025-12-04,139660.0,Business Revenue,business,False
+749,42,2026-01-04,114750.0,Business Revenue,business,False
+750,42,2026-02-08,61710.0,Business Revenue,business,False
+751,42,2026-03-26,125640.0,Rental Income,business,False
+752,42,2026-04-16,195400.0,Business Revenue,business,False
+753,42,2026-05-10,121870.0,Business Revenue,business,False
+754,42,2026-06-03,200500.0,Client Payment,business,False
+755,42,2026-07-20,129040.0,Business Revenue,business,False
+756,42,2026-08-15,130380.0,Rental Income,business,False
+757,43,2025-03-02,295430.0,Employer Payroll,salaried,True
+758,43,2025-04-01,462320.0,Overtime,salaried,True
+759,43,2025-05-03,255580.0,Employer Payroll,salaried,True
+760,43,2025-06-02,497440.0,Bonus,salaried,True
+761,43,2025-07-02,317920.0,Overtime,salaried,True
+762,43,2025-08-01,279380.0,Employer Payroll,salaried,True
+763,43,2025-09-03,289890.0,Bonus,salaried,True
+764,43,2025-10-02,266630.0,Employer Payroll,salaried,True
+765,43,2025-11-01,419610.0,Bonus,salaried,True
+766,43,2025-12-03,304050.0,Employer Payroll,salaried,True
+767,43,2026-01-03,355650.0,Employer Payroll,salaried,True
+768,43,2026-02-03,322160.0,Employer Payroll,salaried,True
+769,43,2026-03-03,326070.0,Overtime,salaried,True
+770,43,2026-04-03,491160.0,Employer Payroll,salaried,True
+771,43,2026-05-03,339480.0,Bonus,salaried,True
+772,43,2026-06-03,493240.0,Bonus,salaried,True
+773,43,2026-07-02,311980.0,Freelance Side,salaried,True
+774,43,2026-08-02,319480.0,Employer Payroll,salaried,True
+775,44,2025-03-03,102270.0,Employer Payroll,salaried,True
+776,44,2025-04-03,154270.0,Bonus,salaried,True
+777,44,2025-05-01,90830.0,Employer Payroll,salaried,True
+778,44,2025-06-02,160170.0,Bonus,salaried,True
+779,44,2025-07-01,102250.0,Employer Payroll,salaried,True
+780,44,2025-08-01,108710.0,Freelance Side,salaried,True
+781,44,2025-09-03,102790.0,Employer Payroll,salaried,True
+782,44,2025-10-02,102900.0,Employer Payroll,salaried,True
+783,44,2025-11-01,159700.0,Freelance Side,salaried,True
+784,44,2025-12-01,99950.0,Bonus,salaried,True
+785,44,2026-01-02,106030.0,Overtime,salaried,True
+786,44,2026-02-01,102490.0,Bonus,salaried,True
+787,44,2026-03-02,100440.0,Overtime,salaried,True
+788,44,2026-04-02,162660.0,Overtime,salaried,True
+789,44,2026-05-03,107480.0,Overtime,salaried,True
+790,44,2026-06-02,166390.0,Freelance Side,salaried,True
+791,44,2026-07-03,111880.0,Employer Payroll,salaried,True
+792,44,2026-08-03,121390.0,Overtime,salaried,True
+793,45,2025-03-10,39320.0,Upwork Payout,freelance,False
+794,45,2025-04-24,67510.0,Client Payment,freelance,False
+795,45,2025-05-11,40570.0,Client Payment,freelance,False
+796,45,2025-06-08,48520.0,Royalty,freelance,False
+797,45,2025-07-05,49030.0,Client Payment,freelance,False
+798,45,2025-08-15,42340.0,Client Payment,freelance,False
+799,45,2025-09-28,45560.0,Client Payment,freelance,False
+800,45,2025-10-09,48970.0,Client Payment,freelance,False
+801,45,2025-11-08,64970.0,Client Payment,freelance,False
+802,45,2025-12-24,42560.0,Upwork Payout,freelance,False
+803,45,2026-01-24,44630.0,Client Payment,freelance,False
+804,45,2026-02-07,60400.0,Client Payment,freelance,False
+805,45,2026-03-13,65120.0,Royalty,freelance,False
+806,45,2026-04-26,86040.0,Client Payment,freelance,False
+807,45,2026-05-16,69310.0,Royalty,freelance,False
+808,45,2026-06-12,97100.0,Client Payment,freelance,False
+809,45,2026-07-24,65010.0,Upwork Payout,freelance,False
+810,45,2026-08-19,51730.0,Client Payment,freelance,False
+811,46,2025-03-03,290900.0,Employer Payroll,salaried,True
+812,46,2025-04-01,409960.0,Employer Payroll,salaried,True
+813,46,2025-05-01,303610.0,Bonus,salaried,True
+814,46,2025-06-02,427430.0,Employer Payroll,salaried,True
+815,46,2025-07-01,283860.0,Freelance Side,salaried,True
+816,46,2025-08-01,276260.0,Bonus,salaried,True
+817,46,2025-09-02,291940.0,Bonus,salaried,True
+818,46,2025-10-03,313300.0,Employer Payroll,salaried,True
+819,46,2025-11-03,407280.0,Bonus,salaried,True
+820,46,2025-12-02,287660.0,Bonus,salaried,True
+821,46,2026-01-01,300000.0,Bonus,salaried,True
+822,46,2026-02-01,303320.0,Freelance Side,salaried,True
+823,46,2026-03-03,299750.0,Bonus,salaried,True
+824,46,2026-04-03,455110.0,Employer Payroll,salaried,True
+825,46,2026-05-03,315960.0,Bonus,salaried,True
+826,46,2026-06-02,412080.0,Employer Payroll,salaried,True
+827,46,2026-07-03,342430.0,Overtime,salaried,True
+828,46,2026-08-03,290670.0,Bonus,salaried,True
+829,47,2025-03-09,408020.0,Rental Income,mixed,False
+830,47,2025-04-27,651790.0,Rental Income,mixed,False
+831,47,2025-05-06,337160.0,Dividend,mixed,False
+832,47,2025-06-13,639080.0,Employer Payroll,mixed,False
+833,47,2025-07-17,425730.0,Employer Payroll,mixed,False
+834,47,2025-08-08,429590.0,Rental Income,mixed,False
+835,47,2025-09-28,397680.0,Dividend,mixed,False
+836,47,2025-10-06,374630.0,Rental Income,mixed,False
+837,47,2025-11-21,164470.0,Rental Income,mixed,False
+838,47,2025-12-13,495090.0,Rental Income,mixed,False
+839,47,2026-01-05,207590.0,Employer Payroll,mixed,False
+840,47,2026-02-06,429740.0,Dividend,mixed,False
+841,47,2026-03-21,376550.0,Rental Income,mixed,False
+842,47,2026-04-26,681220.0,Business Revenue,mixed,False
+843,47,2026-05-23,385860.0,Rental Income,mixed,False
+844,47,2026-06-13,652790.0,Employer Payroll,mixed,False
+845,47,2026-07-26,457730.0,Dividend,mixed,False
+846,47,2026-08-03,422770.0,Employer Payroll,mixed,False
+847,48,2025-03-16,102090.0,Client Payment,freelance,False
+848,48,2025-04-28,122340.0,Upwork Payout,freelance,False
+849,48,2025-05-18,26540.0,Upwork Payout,freelance,False
+850,48,2025-06-25,111110.0,Upwork Payout,freelance,False
+851,48,2025-07-17,62670.0,Royalty,freelance,False
+852,48,2025-08-09,96070.0,Upwork Payout,freelance,False
+853,48,2025-09-26,98010.0,Client Payment,freelance,False
+854,48,2025-10-22,145090.0,Upwork Payout,freelance,False
+855,48,2025-11-18,137450.0,Client Payment,freelance,False
+856,48,2025-12-14,78850.0,Royalty,freelance,False
+857,48,2026-01-01,100940.0,Client Payment,freelance,False
+858,48,2026-02-20,40750.0,Client Payment,freelance,False
+859,48,2026-03-21,19450.0,Royalty,freelance,False
+860,48,2026-04-25,191990.0,Client Payment,freelance,False
+861,48,2026-05-18,67190.0,Upwork Payout,freelance,False
+862,48,2026-06-12,111400.0,Royalty,freelance,False
+863,48,2026-07-26,199930.0,Client Payment,freelance,False
+864,48,2026-08-08,124910.0,Royalty,freelance,False
+865,49,2025-03-03,142470.0,Bonus,salaried,True
+866,49,2025-04-01,246020.0,Overtime,salaried,True
+867,49,2025-05-03,158490.0,Bonus,salaried,True
+868,49,2025-06-01,246430.0,Freelance Side,salaried,True
+869,49,2025-07-03,158210.0,Bonus,salaried,True
+870,49,2025-08-01,153340.0,Employer Payroll,salaried,True
+871,49,2025-09-01,155440.0,Freelance Side,salaried,True
+872,49,2025-10-01,143860.0,Overtime,salaried,True
+873,49,2025-11-02,237810.0,Freelance Side,salaried,True
+874,49,2025-12-03,155520.0,Bonus,salaried,True
+875,49,2026-01-03,144840.0,Overtime,salaried,True
+876,49,2026-02-01,161110.0,Employer Payroll,salaried,True
+877,49,2026-03-01,156020.0,Bonus,salaried,True
+878,49,2026-04-03,259470.0,Overtime,salaried,True
+879,49,2026-05-01,165690.0,Employer Payroll,salaried,True
+880,49,2026-06-01,248420.0,Employer Payroll,salaried,True
+881,49,2026-07-02,140050.0,Freelance Side,salaried,True
+882,49,2026-08-02,149900.0,Freelance Side,salaried,True
+883,50,2025-03-10,121540.0,Client Payment,freelance,False
+884,50,2025-04-01,302030.0,Client Payment,freelance,False
+885,50,2025-05-19,122990.0,Royalty,freelance,False
+886,50,2025-06-08,215200.0,Client Payment,freelance,False
+887,50,2025-07-15,122270.0,Royalty,freelance,False
+888,50,2025-08-28,52660.0,Upwork Payout,freelance,False
+889,50,2025-09-21,150380.0,Client Payment,freelance,False
+890,50,2025-10-14,114740.0,Client Payment,freelance,False
+891,50,2025-11-18,144320.0,Client Payment,freelance,False
+892,50,2025-12-02,156360.0,Royalty,freelance,False
+893,50,2026-01-15,38180.0,Client Payment,freelance,False
+894,50,2026-02-16,323790.0,Client Payment,freelance,False
+895,50,2026-03-06,62090.0,Royalty,freelance,False
+896,50,2026-04-22,165280.0,Royalty,freelance,False
+897,50,2026-05-13,15250.0,Upwork Payout,freelance,False
+898,50,2026-06-28,4000.0,Client Payment,freelance,False
+899,50,2026-07-22,132750.0,Royalty,freelance,False
+900,50,2026-08-17,20160.0,Royalty,freelance,False

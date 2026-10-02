@@ -1,0 +1,38 @@
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.mypy_cache/
+.ruff_cache/
+
+# data (regenerate with `make data`)
+data/raw/*
+data/processed/*
+data/warehouse/*
+data/exports/*
+!data/**/.gitkeep
+
+# models / vector store
+ml/models/artifacts/*
+ml/models/registry/*
+rag/vector_store/*
+
+# logs & secrets
+.env.local
+.env.*.local
+logs/*
+.env
+*.log
+
+# notebooks
+.ipynb_checkpoints/
+
+# node
+node_modules/
+.next/
+out/
+
+# os
+.DS_Store

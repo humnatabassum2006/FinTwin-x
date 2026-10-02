@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: fintwin-x
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    autoDeployTrigger: checksPass
+    envVars:
+      - key: FINTWIN_ENV
+        value: production
+      - key: FINTWIN_JWT_SECRET
+        generateValue: true
+      - key: FINTWIN_ENABLE_DEMO_USER
+        value: false
+      - key: FINTWIN_EMBEDDING_BACKEND
+        value: tfidf
+      - key: FINTWIN_ENABLE_SHAP
+        value: false

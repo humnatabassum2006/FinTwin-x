@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FinTwin-X · AI Financial Digital Twin</title>
+<style>
+:root{
+  --bg:#080c18; --panel:#0e1526; --panel2:#131c31; --line:#1e2a44; --text:#e6edf7;
+  --muted:#8b9ab4; --accent:#22d3ee; --accent2:#818cf8; --good:#34d399; --warn:#fbbf24;
+  --bad:#f87171; --pink:#f472b6;
+}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(1200px 600px at 20% -10%,#132043 0%,var(--bg) 55%);
+ color:var(--text);font:14px/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}
+header{display:flex;align-items:center;gap:16px;padding:14px 22px;border-bottom:1px solid var(--line);
+ background:rgba(10,15,28,.85);backdrop-filter:blur(8px);position:sticky;top:0;z-index:20;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.3px;font-size:17px}
+.logo .dot{width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));
+ box-shadow:0 0 14px var(--accent)}
+.tag{font-size:11px;color:var(--muted);border:1px solid var(--line);padding:2px 8px;border-radius:20px}
+.spacer{flex:1}
+select,input,button{font:inherit;color:var(--text);background:var(--panel2);border:1px solid var(--line);
+ border-radius:8px;padding:7px 10px;outline:none}
+button{cursor:pointer;background:linear-gradient(135deg,#1b2742,#16203a);transition:.15s}
+button:hover{border-color:var(--accent);box-shadow:0 0 0 1px rgba(34,211,238,.25)}
+button.primary{background:linear-gradient(135deg,var(--accent),#0ea5b7);color:#04222a;font-weight:700;border:none}
+button.primary:hover{filter:brightness(1.1)}
+nav{display:flex;gap:4px;padding:10px 16px;overflow:auto;border-bottom:1px solid var(--line);background:#0a1020}
+nav button{border:1px solid transparent;background:transparent;color:var(--muted);border-radius:10px;padding:8px 12px;white-space:nowrap}
+nav button.active{color:var(--text);background:var(--panel2);border-color:var(--line)}
+main{padding:18px 22px 60px;max-width:1500px;margin:0 auto}
+.grid{display:grid;gap:14px}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:1100px){.g4,.g3,.g2{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){.g4,.g3,.g2{grid-template-columns:1fr}}
+.card{background:linear-gradient(180deg,var(--panel),#0c1322);border:1px solid var(--line);
+ border-radius:14px;padding:16px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.card h3{margin:0 0 12px;font-size:13px;letter-spacing:.9px;text-transform:uppercase;color:var(--muted);font-weight:600}
+.kpi .label{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.8px}
+.kpi .value{font-size:27px;font-weight:750;margin-top:6px;letter-spacing:-.5px}
+.kpi .sub{font-size:12px;color:var(--muted);margin-top:4px}
+.badge{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:700}
+.b-low{background:rgba(52,211,153,.15);color:var(--good);border:1px solid rgba(52,211,153,.35)}
+.b-mod{background:rgba(251,191,36,.15);color:var(--warn);border:1px solid rgba(251,191,36,.35)}
+.b-ele{background:rgba(248,113,113,.15);color:var(--bad);border:1px solid rgba(248,113,113,.35)}
+.b-high{background:rgba(248,113,113,.25);color:#fff;border:1px solid var(--bad)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:right}
+th:first-child,td:first-child{text-align:left}
+th{color:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.6px}
+tbody tr:hover{background:rgba(255,255,255,.02)}
+.mono{font-variant-numeric:tabular-nums}
+.pos{color:var(--good)}.neg{color:var(--bad)}.mut{color:var(--muted)}
+.slider{display:grid;grid-template-columns:150px 1fr 96px;gap:10px;align-items:center;margin:9px 0}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.preset{padding:8px 11px;border:1px solid var(--line);border-radius:10px;background:var(--panel2);cursor:pointer;font-size:12.5px}
+.preset:hover{border-color:var(--accent)}
+.preset.active{background:rgba(34,211,238,.12);border-color:var(--accent);color:#fff}
+.chat{display:flex;flex-direction:column;gap:10px;max-height:520px;overflow:auto;padding:4px}
+.msg{padding:11px 13px;border-radius:12px;max-width:88%;white-space:pre-wrap;font-size:13.4px}
+.msg.user{align-self:flex-end;background:linear-gradient(135deg,#123047,#0e2233);border:1px solid #1c3a52}
+.msg.bot{align-self:flex-start;background:var(--panel2);border:1px solid var(--line)}
+.msg table{margin:8px 0}
+.trace{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chip{font-size:10.5px;padding:2px 8px;border-radius:20px;background:#101a2e;border:1px solid var(--line);color:var(--muted)}
+footer{padding:22px;color:var(--muted);font-size:12px;text-align:center;border-top:1px solid var(--line);margin-top:30px}
+svg{display:block;width:100%;height:auto;overflow:visible}
+.hint{font-size:11.5px;color:var(--muted)}
+.scroll{max-height:330px;overflow:auto}
+.flex{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.bar{height:7px;border-radius:6px;background:#1b2540;overflow:hidden}
+.bar>i{display:block;height:100%;border-radius:6px}
+.loader{opacity:.45}
+.shimmer{color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo"><span class="dot"></span> FinTwin-X</div>
+  <span class="tag">AI Financial Digital Twin</span>
+  <span class="tag" id="asOf">as of —</span>
+  <div class="spacer"></div>
+  <label class="hint">User</label>
+  <select id="userSel" style="min-width:150px"></select>
+  <button id="btnReload">Reload</button>
+  <a href="/docs" target="_blank" style="font-size:12px">API docs ↗</a>
+</header>
+
+<nav id="tabs"></nav>
+<main id="view"><div class="card shimmer">Loading FinTwin-X…</div></main>
+
+<footer>
+  Synthetic data · Model estimates with probabilities and assumptions — not financial advice, not a guarantee.
+  <br/>Every number shown is produced by the FinTwin-X tool layer; the language model never invents a figure.
+</footer>
+
+<script>
+/* ===================================================================== utilities */
+const $ = (s,r=document)=>r.querySelector(s);
+const fmtMoney = v => {
+  if(v==null||!isFinite(v)) return '—';
+  const s = v<0?'-':''; v=Math.abs(v);
+  if(v>=1e7) return s+'Rs '+(v/1e7).toFixed(2)+' Cr';
+  if(v>=1e5) return s+'Rs '+(v/1e5).toFixed(2)+' L';
+  return s+'Rs '+Math.round(v).toLocaleString();
+};
+const fmtPct = (v,d=0)=> v==null||!isFinite(v)?'—':(v*100).toFixed(d)+'%';
+const fmtNum = (v,d=1)=> v==null||!isFinite(v)?'—':Number(v).toFixed(d);
+const esc = s => String(s??'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+
+async function api(path, opts){
+  const r = await fetch(path, Object.assign({headers:{'Content-Type':'application/json'}}, opts||{}));
+  if(!r.ok){
+    let d={}; try{ d = await r.json(); }catch(e){}
+    throw new Error(d.error || d.detail || (r.status+' '+r.statusText));
+  }
+  return r.json();
+}
+
+/* ===================================================================== svg charts */
+function lineChart(series, opts={}){
+  // series: [{name,color,values:[]}, ...]  opts:{height, labels, bands:[{lo:[],hi:[],color}], yFmt, fill}
+  const H = opts.height||230, W=720, PL=58, PR=14, PT=14, PB=26;
+  const all = series.flatMap(s=>s.values).concat((opts.bands||[]).flatMap(b=>b.lo.concat(b.hi)))
+                   .filter(v=>v!=null&&isFinite(v));
+  if(!all.length) return '<div class="hint">no data</div>';
+  let min=Math.min(...all), max=Math.max(...all);
+  if(opts.zeroLine) min = Math.min(min,0);
+  const pad=(max-min)*0.12||1; min-=pad; max+=pad;
+  const n = Math.max(...series.map(s=>s.values.length),1);
+  const X = i => PL + (W-PL-PR)*(i/(n-1||1));
+  const Y = v => PT + (H-PT-PB)*(1-(v-min)/(max-min||1));
+  let g='';
+  for(let k=0;k<=4;k++){
+    const v=min+(max-min)*k/4, y=Y(v);
+    g+=`<line x1="${PL}" x2="${W-PR}" y1="${y}" y2="${y}" stroke="#1e2a44" stroke-width="1"/>
+        <text x="${PL-8}" y="${y+4}" fill="#8b9ab4" font-size="10" text-anchor="end">${opts.yFmt?opts.yFmt(v):fmtMoney(v)}</text>`;
+  }
+  (opts.bands||[]).forEach(b=>{
+    let d='', up=[], dn=[];
+    for(let i=0;i<b.hi.length;i++){ up.push(`${X(i)},${Y(b.hi[i])}`); }
+    for(let i=b.lo.length-1;i>=0;i--){ dn.push(`${X(i)},${Y(b.lo[i])}`); }
+    g+=`<polygon points="${up.concat(dn).join(' ')}" fill="${b.color||'rgba(34,211,238,.14)'}"/>`;
+  });
+  series.forEach(s=>{
+    const pts=s.values.map((v,i)=>v==null?null:`${X(i)},${Y(v)}`).filter(Boolean);
+    if(!pts.length) return;
+    if(opts.fill!==false && s.fill){
+      g+=`<polygon points="${X(0)},${Y(Math.max(min,0))} ${pts.join(' ')} ${X(s.values.length-1)},${Y(Math.max(min,0))}" fill="${s.fill}"/>`;
+    }
+    g+=`<polyline points="${pts.join(' ')}" fill="none" stroke="${s.color}" stroke-width="2.2" stroke-linejoin="round"/>`;
+    s.values.forEach((v,i)=>{ if(v!=null&&s.dots!==false&&n<=40) g+=`<circle cx="${X(i)}" cy="${Y(v)}" r="2.6" fill="${s.color}"/>`; });
+  });
+  const labels = opts.labels||[];
+  const step = Math.max(1, Math.ceil(n/8));
+  labels.forEach((l,i)=>{ if(i%step===0) g+=`<text x="${X(i)}" y="${H-6}" fill="#8b9ab4" font-size="10" text-anchor="middle">${esc(l)}</text>`; });
+  const legend = series.map(s=>`<span class="chip" style="border-color:${s.color}55"><i style="display:inline-block;width:8px;height:8px;border-radius:2px;background:${s.color};margin-right:6px"></i>${esc(s.name)}</span>`).join(' ');
+  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" style="height:${H}px">${g}</svg>
+          <div class="flex" style="margin-top:6px">${legend}</div>`;
+}
+
+function radar(dims, compare){
+  const S=280, C=S/2, R=S/2-52, n=dims.length;
+  const ang = i => -Math.PI/2 + i*2*Math.PI/n;
+  const pt = (i,r)=>[C+Math.cos(ang(i))*r, C+Math.sin(ang(i))*r];
+  let g='';
+  [0.25,0.5,0.75,1].forEach(f=>{
+    g+=`<polygon points="${dims.map((_,i)=>pt(i,R*f).join(',')).join(' ')}" fill="none" stroke="#1e2a44"/>`;
+  });
+  dims.forEach((d,i)=>{ const [x,y]=pt(i,R); g+=`<line x1="${C}" y1="${C}" x2="${x}" y2="${y}" stroke="#1e2a44"/>`; });
+  const poly = vals => `<polygon points="${vals.map((v,i)=>pt(i,R*Math.max(0.02,Math.min(1,v/100))).join(',')).join(' ')}"
+      fill="rgba(34,211,238,.18)" stroke="#22d3ee" stroke-width="2"/>`;
+  if(compare) g+=`<polygon points="${compare.map((v,i)=>pt(i,R*Math.max(0.02,Math.min(1,v/100))).join(',')).join(' ')}"
+      fill="rgba(139,154,180,.12)" stroke="#8b9ab4" stroke-width="1.4" stroke-dasharray="4 3"/>`;
+  g+=poly(dims.map(d=>d.score));
+  dims.forEach((d,i)=>{
+    const [x,y]=pt(i,R+22);
+    g+=`<text x="${x}" y="${y+4}" fill="#8b9ab4" font-size="10.5" text-anchor="${x>C+6?'start':(x<C-6?'end':'middle')}">${esc(d.short||d.label)}</text>
+        <text x="${x}" y="${y+17}" fill="#e6edf7" font-size="10.5" font-weight="700" text-anchor="${x>C+6?'start':(x<C-6?'end':'middle')}">${fmtNum(d.score,0)}</text>`;
+  });
+  return `<svg viewBox="0 0 ${S} ${S}" style="max-width:${S}px;margin:0 auto">${g}</svg>`;
+}
+
+function gauge(value, label){
+  const W=260,H=150, cx=W/2, cy=122, r=92;
+  const a0=Math.PI, a1=0;
+  const ang = v => a0 + (a1-a0)*Math.max(0,Math.min(1,v/100));
+  const arc = (v0,v1,color,w)=>{
+    const p = (v)=>[cx+Math.cos(ang(v))*r, cy-Math.sin(ang(v))*r];
+    const [x0,y0]=p(v0), [x1,y1]=p(v1);
+    return `<path d="M ${x0} ${y0} A ${r} ${r} 0 0 1 ${x1} ${y1}" fill="none" stroke="${color}" stroke-width="${w}" stroke-linecap="round"/>`;
+  };
+  const col = value<25?'#34d399':value<50?'#fbbf24':value<75?'#fb923c':'#f87171';
+  let g = arc(0,100,'#1b2540',16)+arc(0,value,col,16);
+  const [hx,hy]=[cx+Math.cos(ang(value))*(r-26), cy-Math.sin(ang(value))*(r-26)];
+  g+=`<line x1="${cx}" y1="${cy}" x2="${hx}" y2="${hy}" stroke="${col}" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="${cx}" cy="${cy}" r="5" fill="${col}"/>
+      <text x="${cx}" y="${cy-26}" fill="#e6edf7" font-size="34" font-weight="800" text-anchor="middle">${fmtNum(value,0)}</text>
+      <text x="${cx}" y="${cy-8}" fill="#8b9ab4" font-size="11" text-anchor="middle">${esc(label||'')}</text>`;
+  return `<svg viewBox="0 0 ${W} ${H}" style="max-width:${W}px;margin:0 auto">${g}</svg>`;
+}
+
+function bars(items, opts={}){
+  const max = Math.max(...items.map(i=>Math.abs(i.value)),1);
+  return items.map(i=>{
+    const w = Math.abs(i.value)/max*100;
+    const col = i.color || (i.value<0?'#f87171':'#22d3ee');
+    return `<div style="margin:7px 0">
+      <div class="flex" style="justify-content:space-between;font-size:12.5px">
+        <span>${esc(i.label)}</span><span class="mono">${esc(i.text ?? fmtNum(i.value,1))}</span></div>
+      <div class="bar"><i style="width:${w}%;background:${col}"></i></div></div>`;
+  }).join('');
+}
+
+/* ===================================================================== app state */
+const state = { tab:'overview', userId:1, data:{}, busy:false,
+  scenario:{n_paths:5000, horizon_months:36, inflation_rate:0.075, income_change_pct:0, expense_change_pct:0,
+             lump_sum_expense:0, new_debt_principal:0, new_debt_term_months:60, monthly_investment:0}, compare:null };
+const TABS = [
+  ['overview','Executive Overview'],['dna','Financial DNA'],['cashflow','Cash Flow'],
+  ['spending','Spending Intelligence'],['risk','Risk Center'],['lab','Scenario Lab'],
+  ['goal','Goal Simulator'],['copilot','AI Copilot']
+];
+
+function renderTabs(){
+  $('#tabs').innerHTML = TABS.map(([k,l])=>
+    `<button data-tab="${k}" class="${state.tab===k?'active':''}">${l}</button>`).join('');
+  $('#tabs').querySelectorAll('button').forEach(b=>b.onclick=()=>{ state.tab=b.dataset.tab; renderTabs(); render(); });
+}
+
+async function loadUsers(){
+  const r = await api('/population');
+  $('#asOf').textContent = 'as of '+r.as_of;
+  const u = await api('/users?limit=40');
+  $('#userSel').innerHTML = u.users.map(x=>
+    `<option value="${x.user_id}">#${x.user_id} · ${x.persona} · ${Math.round(x.monthly_income/1000)}k/mo</option>`).join('');
+  if(u.users.length) state.userId = u.users[0].user_id;
+  $('#userSel').value = state.userId;
+}
+$('#userSel').addEventListener('change', e=>{ state.userId=+e.target.value; state.data={}; render(); });
+$('#btnReload').onclick = ()=>{ state.data={}; render(); };
+
+/* ===================================================================== screens */
+async function screenOverview(){
+  const [ov, cf] = await Promise.all([
+    api(`/users/${state.userId}/overview`), api(`/users/${state.userId}/cashflow?months=12`)]);
+  const h = ov.history;
+  const kpis = [
+    ['Financial Health', fmtNum(ov.health_score,0)+'<span style="font-size:15px;color:#8b9ab4">/100</span>', ov.segment],
+    ['Net Cash Flow', fmtMoney(ov.net_cash_flow)+'/mo', 'savings rate '+fmtPct(ov.savings_rate,1)],
+    ['Emergency Fund', fmtNum(ov.emergency_fund_months,1)+' months', fmtMoney(ov.liquid_assets)+' liquid'],
+    ['Debt', fmtMoney(ov.debt_balance), 'EMI '+fmtPct(ov.debt_service_ratio,1)+' of income'],
+  ];
+  return `
+  <div class="grid g4">
+    ${kpis.map(([l,v,s])=>`<div class="card kpi"><div class="label">${l}</div><div class="value">${v}</div><div class="sub">${esc(s)}</div></div>`).join('')}
+  </div>
+  <div class="grid g2" style="margin-top:14px">
+    <div class="card"><h3>Income vs Expenses (12 months)</h3>
+      ${lineChart([
+        {name:'Income',color:'#34d399',values:h.income,fill:'rgba(52,211,153,.10)'},
+        {name:'Expenses',color:'#f87171',values:h.expense,fill:'rgba(248,113,113,.10)'},
+        {name:'Net cash flow',color:'#22d3ee',values:h.net_cash_flow}],{height:250,labels:h.months.map(m=>m.slice(0,7)),zeroLine:true})}
+    </div>
+    <div class="card"><h3>Liquidity trajectory</h3>
+      ${lineChart([{name:'Cash balance',color:'#818cf8',values:h.cash_balance,fill:'rgba(129,140,248,.12)'}],
+        {height:250,labels:h.months.map(m=>m.slice(0,7)),zeroLine:true})}
+    </div>
+  </div>
+  <div class="grid g2" style="margin-top:14px">
+    <div class="card"><h3>Profile</h3>
+      <table><tbody>
+        <tr><td>Persona</td><td>${esc(ov.persona)}</td></tr>
+        <tr><td>Segment</td><td>${esc(ov.segment)}</td></tr>
+        <tr><td>Monthly income</td><td class="mono">${fmtMoney(ov.monthly_income)}</td></tr>
+        <tr><td>Monthly expenses</td><td class="mono">${fmtMoney(ov.monthly_expense)}</td></tr>
+        <tr><td>Monthly EMI</td><td class="mono">${fmtMoney(ov.monthly_emi)}</td></tr>
+        <tr><td>Net worth</td><td class="mono">${fmtMoney(ov.net_worth)}</td></tr>
+        <tr><td>Rule-based risk</td><td class="mono">${fmtNum(ov.risk_score_rule,0)}/100</td></tr>
+      </tbody></table>
+    </div>
+    <div class="card"><h3>Cash-flow quality (last ${cf.months} months)</h3>
+      <table><tbody>
+        <tr><td>Average income</td><td class="mono">${fmtMoney(cf.avg_income)}</td></tr>
+        <tr><td>Average expenses</td><td class="mono">${fmtMoney(cf.avg_expense)}</td></tr>
+        <tr><td>Average EMI</td><td class="mono">${fmtMoney(cf.avg_emi)}</td></tr>
+        <tr><td>Average net</td><td class="mono ${cf.avg_net_cash_flow>=0?'pos':'neg'}">${fmtMoney(cf.avg_net_cash_flow)}</td></tr>
+        <tr><td>Deficit months</td><td class="mono">${cf.negative_months} / ${cf.months}</td></tr>
+        <tr><td>Income trend / month</td><td class="mono">${fmtMoney(cf.trend.income_slope)}</td></tr>
+        <tr><td>Expense trend / month</td><td class="mono">${fmtMoney(cf.trend.expense_slope)}</td></tr>
+      </tbody></table>
+    </div>
+  </div>`;
+}
+
+async function screenDNA(){
+  const d = await api(`/users/${state.userId}/dna`);
+  const dims = d.dimensions.map(x=>({...x, short:x.label.split(' ')[0]}));
+  const med = d.population_medians;
+  return `
+  <div class="grid g2">
+    <div class="card"><h3>Financial DNA</h3>
+      ${radar(dims, dims.map(x=>med[x.key]))}
+      <div class="hint" style="text-align:center;margin-top:4px">Solid = you · Dashed = population median</div>
+    </div>
+    <div class="card"><h3>Dimension detail</h3>
+      <div class="scroll">${bars(dims.map(x=>{
+        const col = x.key==='financial_risk' ? (x.score>60?'#f87171':x.score>35?'#fbbf24':'#34d399') : (x.score>65?'#34d399':x.score>40?'#fbbf24':'#f87171');
+        return {label:x.label, value:x.score, text:fmtNum(x.score,0)+'  (median '+fmtNum(med[x.key],0)+')', color:col};
+      }))}</div>
+      <div class="grid g2" style="margin-top:14px">
+        <div class="card" style="background:#0c1322"><div class="label hint">HEALTH</div>
+          <div class="value" style="font-size:24px">${fmtNum(d.health_score,0)}<span style="font-size:14px;color:#8b9ab4">/100</span></div></div>
+        <div class="card" style="background:#0c1322"><div class="label hint">SEGMENT</div>
+          <div style="font-size:15px;font-weight:700;margin-top:6px">${esc(d.segment)}</div></div>
+      </div>
+    </div>
+  </div>`;
+}
+
+async function screenCashflow(){
+  const [fc, ov] = await Promise.all([
+    api(`/users/${state.userId}/forecast`), api(`/users/${state.userId}/overview`)]);
+  const h = ov.history;
+  const horizons = fc.cashflow.horizons;
+  const rows = Object.keys(horizons).map(k=>{
+    const v = horizons[k];
+    return `<tr><td>${k} month${k>1?'s':''}</td><td class="mono">${fmtMoney(v.income)}</td>
+      <td class="mono">${fmtMoney(v.expense)}</td><td class="mono">${fmtMoney(v.emi)}</td>
+      <td class="mono ${v.net>=0?'pos':'neg'}">${fmtMoney(v.net)}</td>
+      <td class="mono mut">${fmtMoney(v.net_low)} – ${fmtMoney(v.net_high)}</td></tr>`;
+  }).join('');
+  const fe = fc.expenses.horizons;
+  const erows = Object.keys(fe).map(k=>`<tr><td>${k} month${k>1?'s':''}</td>
+      <td class="mono">${fmtMoney(fe[k].point)}</td>
+      <td class="mono mut">${fmtMoney(fe[k].low)} – ${fmtMoney(fe[k].high)}</td></tr>`).join('');
+  return `
+  <div class="card"><h3>History and 12-month projection</h3>
+    ${lineChart([
+      {name:'Income (history)',color:'#34d399',values:h.income},
+      {name:'Expenses (history)',color:'#f87171',values:h.expense},
+      {name:'Net cash flow (history)',color:'#22d3ee',values:h.net_cash_flow}],
+      {height:250,labels:h.months.map(m=>m.slice(0,7)),zeroLine:true})}
+    <div class="hint" style="margin-top:8px">History = realised ledger · Projection below = model forecast with a 90% conformal interval.</div>
+  </div>
+  <div class="grid g2" style="margin-top:14px">
+    <div class="card"><h3>Cash-flow forecast</h3>
+      <table><thead><tr><th>Horizon</th><th>Income</th><th>Expense</th><th>EMI</th><th>Net</th><th>90% interval</th></tr></thead>
+      <tbody>${rows}</tbody></table></div>
+    <div class="card"><h3>Expense forecast</h3>
+      <table><thead><tr><th>Horizon</th><th>Prediction</th><th>90% interval</th></tr></thead>
+      <tbody>${erows}</tbody></table>
+      <div class="hint" style="margin-top:8px">h=1 predicts next month; h=3/6/12 predict the average monthly spend over that window.</div>
+    </div>
+  </div>`;
+}
+
+async function screenSpending(){
+  const [sp, an] = await Promise.all([
+    api(`/users/${state.userId}/spending`), api(`/users/${state.userId}/anomalies?top_k=6`)]);
+  const cats = sp.categories.slice(0,10);
+  const series = Object.entries(sp.monthly_by_category.series).slice(0,6).map(([k,v],i)=>({
+    name:k, values:v, color:['#22d3ee','#f87171','#34d399','#fbbf24','#818cf8','#f472b6'][i%6]}));
+  const alerts = (an.category_alerts||[]).map(a=>`<li>${esc(a.message)}</li>`).join('') || '<li class="mut">No category-level alerts.</li>';
+  const tx = (an.top_anomalies||[]).map(t=>`<tr><td>${esc(t.timestamp.slice(0,10))}</td><td>${esc(t.merchant)}</td>
+      <td>${esc(t.category)}</td><td class="mono">${fmtMoney(t.amount)}</td>
+      <td class="mono mut">${fmtMoney(t.typical_amount)}</td>
+      <td><span class="badge ${t.severity==='high'?'b-high':t.severity==='medium'?'b-mod':'b-low'}">${t.severity}</span></td></tr>`).join('');
+  return `
+  <div class="grid g2">
+    <div class="card"><h3>Category mix (12 months)</h3>
+      ${bars(cats.map(c=>({label:c.category, value:c.share*100, text:fmtMoney(c.amount)+' · '+fmtPct(c.share,1)})))}
+    </div>
+    <div class="card"><h3>Behavioural signals</h3>
+      <table><tbody>
+        <tr><td>Total spend (12m)</td><td class="mono">${fmtMoney(sp.total_spend_12m)}</td></tr>
+        <tr><td>Weekend share</td><td class="mono">${fmtPct(sp.weekend_spend_share,1)}</td></tr>
+        <tr><td>Late-night (23:00+) share</td><td class="mono">${fmtPct(sp.latenight_spend_share,1)}</td></tr>
+        <tr><td>Merchant concentration (HHI)</td><td class="mono">${fmtNum(sp.merchant_concentration_hhi,3)}</td></tr>
+        <tr><td>Subscriptions / month</td><td class="mono">${fmtMoney(sp.subscription_monthly)}</td></tr>
+        <tr><td>Transactions scanned</td><td class="mono">${an.transactions_scanned.toLocaleString()}</td></tr>
+      </tbody></table>
+      <div class="hint" style="margin-top:10px">Detector: ${esc(an.method||'')}</div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:14px"><h3>Category trend</h3>
+    ${lineChart(series,{height:240,labels:sp.monthly_by_category.months.map(m=>m.slice(0,7))})}</div>
+  <div class="grid g2" style="margin-top:14px">
+    <div class="card"><h3>Top merchants</h3>
+      <table><thead><tr><th>Merchant</th><th>Amount</th></tr></thead><tbody>
+      ${sp.top_merchants.map(m=>`<tr><td>${esc(m.merchant)}</td><td class="mono">${fmtMoney(m.amount)}</td></tr>`).join('')}
+      </tbody></table></div>
+    <div class="card"><h3>Anomaly alerts</h3><ul style="margin:0 0 10px 16px;padding:0">${alerts}</ul>
+      <div class="scroll"><table><thead><tr><th>Date</th><th>Merchant</th><th>Cat</th><th>Amount</th><th>Typical</th><th>Sev</th></tr></thead>
+      <tbody>${tx||'<tr><td colspan="6" class="mut">none</td></tr>'}</tbody></table></div>
+    </div>
+  </div>`;
+}
+
+async function screenRisk(){
+  const [r, cf] = await Promise.all([
+    api(`/users/${state.userId}/risk`), api(`/users/${state.userId}/risk/counterfactuals`)]);
+  const band = r.band.toLowerCase();
+  const contribs = (r.explanation&&r.explanation.contributions)||[];
+  const subs = Object.entries(r.sub_scores);
+  const opts = cf.options.slice(0,6);
+  return `
+  <div class="grid g3">
+    <div class="card">${gauge(r.risk_score, r.band)}
+      <div style="text-align:center"><span class="badge b-${band==='low'?'low':band==='moderate'?'mod':band==='elevated'?'ele':'high'}">${r.band}</span></div>
+      <div class="hint" style="text-align:center;margin-top:8px">Modelled probability of financial stress in the next 6 months: <b>${fmtPct(r.probability_of_stress_6m,1)}</b></div>
+    </div>
+    <div class="card"><h3>Risk decomposition (risk points)</h3>
+      ${bars(contribs.map(c=>({label:c.label, value:Math.abs(c.points),
+        text:(c.points>0?'+':'')+fmtNum(c.points,1),
+        color:c.points>0?'#f87171':'#34d399'})))}
+      <div class="hint" style="margin-top:8px">Method: ${esc((r.explanation&&r.explanation.method)||'—')}${contribs.length?' · top driver: '+esc(r.explanation.top_driver):''}</div>
+    </div>
+    <div class="card"><h3>Sub-risk scores</h3>
+      ${bars(subs.map(([k,v])=>({label:k.replace('_risk','').replace('_',' '), value:v,
+        text:fmtNum(v,0), color:v>60?'#f87171':v>35?'#fbbf24':'#34d399'})))}
+    </div>
+  </div>
+  <div class="grid g2" style="margin-top:14px">
+    <div class="card"><h3>Counterfactuals — what can I change?</h3>
+      <table><thead><tr><th>Action</th><th>New score</th><th>Change</th><th>Effort</th></tr></thead><tbody>
+      ${opts.map(o=>`<tr><td>${esc(o.label)}<div class="hint">${esc(o.detail)}</div></td>
+        <td class="mono">${fmtNum(o.new_score,0)}</td>
+        <td class="mono ${o.delta<0?'pos':'neg'}">${o.delta>0?'+':''}${fmtNum(o.delta,1)}</td>
+        <td class="mut">${esc(o.effort)}</td></tr>`).join('')}
+      </tbody></table>
+    </div>
+    <div class="card"><h3>Plan to reach a risk score of 40</h3>
+      ${cf.plan_to_reach_40.plan.length? `<ol>${cf.plan_to_reach_40.plan.map(p=>
+        `<li>${esc(p.label)} → score ${fmtNum(p.score_after,0)}</li>`).join('')}</ol>
+        <div class="hint">${cf.plan_to_reach_40.reached?'Target reached.':'Target not reachable with the available actions — the largest lever is listed first.'}</div>`
+        : '<div class="hint">Already at or below target.</div>'}
+      <div class="hint" style="margin-top:12px">Current score ${fmtNum(cf.current_score,0)} → projected ${fmtNum(cf.plan_to_reach_40.achieved_score,0)}</div>
+    </div>
+  </div>`;
+}
+
+async function screenLab(){
+  const presets = await api(`/scenarios/presets?user_id=${state.userId}`);
+  const chips = presets.presets.map(p=>`<button class="preset" data-key="${p.name}">${esc(p.label)}</button>`).join('');
+  const S = state.scenario;
+  const slider = (k,label,min,max,step,fmt)=>`
+    <div class="slider"><label class="hint">${label}</label>
+      <input type="range" id="sl_${k}" min="${min}" max="${max}" step="${step}" value="${S[k]??0}">
+      <span class="mono" id="val_${k}">${fmt(S[k]??0)}</span></div>`;
+  const body = `
+  <div class="grid g2">
+    <div class="card"><h3>Scenario parameters</h3>
+      <div class="flex" style="gap:6px;margin-bottom:12px">${chips}</div>
+      ${slider('income_change_pct','Income change',-0.5,0.5,0.05,v=>fmtPct(v,0))}
+      ${slider('expense_change_pct','Expense change',-0.4,0.6,0.05,v=>fmtPct(v,0))}
+      ${slider('inflation_rate','Inflation (annual)',0.02,0.25,0.005,v=>fmtPct(v,1))}
+      ${slider('lump_sum_expense','One-off expense',0,5000000,50000,v=>fmtMoney(v))}
+      ${slider('new_debt_principal','New debt',0,8000000,100000,v=>fmtMoney(v))}
+      ${slider('new_debt_term_months','Loan term (months)',12,240,12,v=>v+' mo')}
+      ${slider('monthly_investment','Monthly investment',0,200000,5000,v=>fmtMoney(v))}
+      ${slider('horizon_months','Horizon',12,120,12,v=>v+' mo')}
+      ${slider('n_paths','Simulations',1000,20000,1000,v=>Number(v).toLocaleString())}
+      <div class="flex" style="margin-top:12px">
+        <button class="primary" id="btnRun">RUN SIMULATION</button>
+        <button id="btnReset">Reset</button>
+        <span class="hint" id="labStatus"></span>
+      </div>
+    </div>
+    <div class="card"><h3>Baseline vs scenario</h3><div id="labResult"><div class="hint">Adjust parameters and run a simulation.</div></div></div>
+  </div>
+  <div class="card" style="margin-top:14px"><h3>Outcome distribution & paths</h3><div id="labCharts"><div class="hint">—</div></div></div>`;
+  return body;
+}
+
+function labBind(presets){
+  const S = state.scenario;
+  const fmtMap = {
+    income_change_pct:v=>fmtPct(v,0), expense_change_pct:v=>fmtPct(v,0), inflation_rate:v=>fmtPct(v,1),
+    lump_sum_expense:v=>fmtMoney(v), new_debt_principal:v=>fmtMoney(v),
+    new_debt_term_months:v=>v+' mo', monthly_investment:v=>fmtMoney(v),
+    horizon_months:v=>v+' mo', n_paths:v=>Number(v).toLocaleString()
+  };
+  document.querySelectorAll('.slider input[type=range]').forEach(inp=>{
+    const k = inp.id.replace('sl_','');
+    inp.oninput = ()=>{
+      S[k] = +inp.value;
+      $('#val_'+k).textContent = fmtMap[k](+inp.value);
+    };
+  });
+  document.querySelectorAll('.preset').forEach(b=>b.onclick=()=>{
+    const p = presets.find(x=>x.name===b.dataset.key);
+    document.querySelectorAll('.preset').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    Object.assign(state.scenario, {
+      income_change_pct:p.income_change_pct||0, expense_change_pct:p.expense_change_pct||0,
+      inflation_rate:p.inflation_rate??0.075, lump_sum_expense:p.lump_sum_expense||0,
+      new_debt_principal:p.new_debt_principal||0, new_debt_term_months:p.new_debt_term_months||60,
+      monthly_investment:p.monthly_investment||0, horizon_months:p.horizon_months||36,
+      n_paths:state.scenario.n_paths||5000
+    });
+    Object.keys(fmtMap).forEach(k=>{
+      const el=$('#sl_'+k); if(el){ el.value=state.scenario[k]??0; $('#val_'+k).textContent=fmtMap[k](state.scenario[k]??0); }
+    });
+  });
+  $('#btnReset').onclick = ()=>{ state.scenario={n_paths:5000,horizon_months:36}; render(); };
+  $('#btnRun').onclick = runLab;
+}
+
+async function runLab(){
+  const S = state.scenario;
+  const spec = {
+    name:'scenario', label:'Your scenario', n_paths:S.n_paths||5000, horizon_months:S.horizon_months||36,
+    income_change_pct:S.income_change_pct||0, expense_change_pct:S.expense_change_pct||0,
+    inflation_rate:S.inflation_rate??null, lump_sum_expense:S.lump_sum_expense||0,
+    new_debt_principal:S.new_debt_principal||0, new_debt_rate:0.20,
+    new_debt_term_months:S.new_debt_term_months||60, monthly_investment:S.monthly_investment||0
+  };
+  $('#labStatus').textContent = 'running '+(spec.n_paths).toLocaleString()+' simulations…';
+  try{
+    const cmp = await api('/simulate/compare',{method:'POST',body:JSON.stringify({
+      user_id:state.userId, scenarios:[spec], n_paths:spec.n_paths, horizon_months:spec.horizon_months})});
+    state.compare = cmp;
+    const [base, alt] = cmp.scenarios;
+    const rows = cmp.table.filter(r=>r.values[0]!=null).map(r=>{
+      const kind=r.kind, f = v => kind==='pct'?fmtPct(v):(kind==='money'?fmtMoney(v):fmtNum(v,1));
+      const d = r.deltas[1], ds = kind==='pct'?((d>0?'+':'')+Math.round(d*100)+' pp'):(kind==='money'?((d>0?'+':'')+fmtMoney(d)):(d>0?'+':'')+fmtNum(d,1));
+      const good = (r.metric==='goal_probability'||r.metric==='expected_final_net_worth'||
+                    r.metric==='median_months_of_cover_at_end'||r.metric==='expected_final_liquid') ? d>0 : d<0;
+      return `<tr><td>${esc(r.label)}</td><td class="mono">${f(r.values[0])}</td><td class="mono">${f(r.values[1])}</td>
+              <td class="mono ${d==0?'mut':(good?'pos':'neg')}">${ds}</td></tr>`;
+    }).join('');
+    $('#labResult').innerHTML = `<table><thead><tr><th>Metric</th><th>Current path</th><th>Scenario</th><th>Change</th></tr></thead>
+      <tbody>${rows}</tbody></table>
+      <div class="hint" style="margin-top:10px">Assumptions: ${esc((alt.summary&&Object.keys(alt.summary).length)?(spec.n_paths).toLocaleString()+' paths · '+spec.horizon_months+' months · '+esc((cmp.scenarios[1].changes||[]).join(', ')):'')}</div>
+      <div class="hint">Changes applied: ${esc((cmp.scenarios[1].changes||['no change']).join(', '))}</div>`;
+    const c1 = cmp.curves[base.name], c2 = cmp.curves[alt.name];
+    $('#labCharts').innerHTML = `
+      <div class="grid g2">
+        <div><h3 class="hint">Net worth — median path</h3>
+          ${lineChart([
+            {name:'Current (p50)',color:'#22d3ee',values:c1.net_worth.p50},
+            {name:'Scenario (p50)',color:'#f472b6',values:c2.net_worth.p50}],
+            {height:230,labels:c1.months.map(m=>'m'+m),zeroLine:true})}</div>
+        <div><h3 class="hint">Liquid assets — p5 / p50 / p95 (scenario)</h3>
+          ${lineChart([{name:'p50',color:'#22d3ee',values:c2.liquid_assets.p50},
+                       {name:'p95',color:'#34d399',values:c2.liquid_assets.p95},
+                       {name:'p5',color:'#f87171',values:c2.liquid_assets.p5}],
+            {height:230,labels:c1.months.map(m=>'m'+m),
+             bands:[{lo:c2.liquid_assets.p25,hi:c2.liquid_assets.p75,color:'rgba(34,211,238,.10)'}]})}
+        </div>
+      </div>
+      <div class="grid g2" style="margin-top:12px">
+        <div><h3 class="hint">Goal fund</h3>
+          ${lineChart([{name:'Current',color:'#22d3ee',values:c1.goal_fund.p50},
+                       {name:'Scenario',color:'#f472b6',values:c2.goal_fund.p50}],
+            {height:210,labels:c1.months.map(m=>'m'+m),zeroLine:true})}</div>
+        <div><h3 class="hint">Net cash flow — median</h3>
+          ${lineChart([{name:'Current',color:'#22d3ee',values:c1.net_cash_flow.p50},
+                       {name:'Scenario',color:'#f472b6',values:c2.net_cash_flow.p50}],
+            {height:210,labels:c1.months.map(m=>'m'+m),zeroLine:true})}</div>
+      </div>`;
+    $('#labStatus').textContent = 'done';
+  }catch(err){
+    $('#labStatus').textContent = 'error: '+err.message;
+  }
+}
+
+async function screenGoal(){
+  const g = await api(`/users/${state.userId}/goal?n_paths=4000`);
+  const goal = g.goal;
+  const prob = g.probability==null?0:g.probability;
+  const req = g.required_contribution||{};
+  return `
+  <div class="grid g3">
+    <div class="card">${gauge(prob*100, 'goal probability')}
+      <div class="hint" style="text-align:center">Target ${fmtMoney(goal.target_amount)} · ${goal.months_remaining} months left</div>
+    </div>
+    <div class="card"><h3>Progress</h3>
+      ${bars([{label:'Saved',value:goal.progress_pct,text:fmtMoney(goal.current_amount)+' ('+fmtNum(goal.progress_pct,1)+'%)',color:'#34d399'}])}
+      <table style="margin-top:12px"><tbody>
+        <tr><td>Target</td><td class="mono">${fmtMoney(goal.target_amount)}</td></tr>
+        <tr><td>Saved</td><td class="mono">${fmtMoney(goal.current_amount)}</td></tr>
+        <tr><td>Expected fund at target date</td><td class="mono">${fmtMoney(g.expected_goal_fund)}</td></tr>
+      </tbody></table>
+    </div>
+    <div class="card"><h3>Required monthly contribution</h3>
+      <table><thead><tr><th>Confidence</th><th>Contribution</th></tr></thead><tbody>
+      ${Object.keys(req).map(k=>{const v=req[k];
+        return `<tr><td>${k.replace('p','')}%</td><td class="mono">${v.required_monthly_contribution==null?'not reachable':fmtMoney(v.required_monthly_contribution)}</td></tr>`;}).join('')}
+      </tbody></table>
+    </div>
+  </div>
+  <div class="card" style="margin-top:14px"><h3>Goal fund — simulated paths</h3>
+    ${lineChart([
+      {name:'p95',color:'#34d399',values:g.bands.p95},
+      {name:'p50',color:'#22d3ee',values:g.bands.p50},
+      {name:'p5',color:'#f87171',values:g.bands.p5}],
+      {height:250,labels:g.months.map(m=>'m'+m),zeroLine:true})}
+    <div class="hint">Target line: ${fmtMoney(goal.target_amount)}</div>
+  </div>
+  <div class="card" style="margin-top:14px"><h3>Sensitivity — extra monthly contribution</h3>
+    <table><thead><tr><th>Extra / month</th><th>Goal probability</th></tr></thead><tbody>
+      ${g.sensitivity.map(s=>`<tr><td>${fmtMoney(s.extra_monthly)}</td><td class="mono">${fmtPct(s.goal_probability,0)}</td></tr>`).join('')}
+    </tbody></table></div>`;
+}
+
+function mdTable(txt){
+  return txt.replace(/\|(.+)\|\s*\n\|([\s\-:|]+)\|\s*\n((?:\|.*\|\s*\n?)*)/g,(m,head,sep,body)=>{
+    const th = head.split('|').filter(s=>s.trim()).map(s=>`<th>${esc(s.trim())}</th>`).join('');
+    const tr = body.trim().split('\n').map(line=>'<tr>'+line.split('|').filter(s=>s.trim())
+      .map(s=>`<td>${esc(s.trim())}</td>`).join('')+'</tr>').join('');
+    return `<table><thead><tr>${th}</tr></thead><tbody>${tr}</tbody></table>`;
+  }).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/^[-•] /gm,'• ').replace(/_([^_]+)_/g,'<i>$1</i>');
+}
+
+async function screenCopilot(){
+  const examples = ['Can I afford a Rs 4,000,000 car?','What happens if my income falls by 20%?',
+    'Why is my risk score what it is?','How likely am I to reach my goal?',
+    'What is the safest way to reach my goal?','Any unusual spending recently?',
+    'What will my expenses be next year?','Explain the 50/30/20 budgeting rule'];
+  return `
+  <div class="grid" style="grid-template-columns:1fr 320px">
+    <div class="card">
+      <h3>AI Financial Copilot</h3>
+      <div class="chat" id="chat">
+        <div class="msg bot">Ask me anything about this financial profile. I will call the FinTwin-X
+        analytics, ML and simulation tools and show you exactly which numbers I used — I never invent a figure.</div>
+      </div>
+      <div class="flex" style="margin-top:12px">
+        <input id="q" placeholder="e.g. Can I afford a Rs 4M car?" style="flex:1;min-width:240px">
+        <button class="primary" id="ask">Ask</button>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Example questions</h3>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        ${examples.map(e=>`<button class="preset" data-q="${esc(e)}">${esc(e)}</button>`).join('')}
+      </div>
+      <h3 style="margin-top:18px">How it works</h3>
+      <div class="hint">
+        1. Intent detection routes the question.<br>
+        2. Specialist agents call numeric tools.<br>
+        3. Monte-Carlo engine produces the figures.<br>
+        4. Explanation agent writes the answer — every number traces to a tool call.
+      </div>
+    </div>
+  </div>`;
+}
+
+function copilotBind(){
+  const input = $('#q');
+  const send = async (q)=>{
+    if(!q) return;
+    const chat = $('#chat');
+    chat.insertAdjacentHTML('beforeend',`<div class="msg user">${esc(q)}</div>`);
+    input.value='';
+    const id='m'+Math.random().toString(36).slice(2);
+    chat.insertAdjacentHTML('beforeend',`<div class="msg bot loader" id="${id}">thinking…</div>`);
+    chat.scrollTop = chat.scrollHeight;
+    try{
+      const r = await api('/agent/chat',{method:'POST',body:JSON.stringify({user_id:state.userId,question:q})});
+      const chips = (r.trace||[]).map(t=>`<span class="chip">${esc(t.label||t.node)} · ${t.ms}ms</span>`).join('')
+        + (r.tool_calls||[]).map(t=>`<span class="chip" style="border-color:#22d3ee55">${esc(t)}</span>`).join('');
+      $('#'+id).className='msg bot';
+      $('#'+id).innerHTML = mdTable(r.answer) + `<div class="trace">${chips}</div>`;
+    }catch(err){
+      $('#'+id).className='msg bot';
+      $('#'+id).textContent = 'Error: '+err.message;
+    }
+    chat.scrollTop = chat.scrollHeight;
+  };
+  $('#ask').onclick = ()=>send(input.value.trim());
+  input.onkeydown = e=>{ if(e.key==='Enter') send(input.value.trim()); };
+  document.querySelectorAll('.preset[data-q]').forEach(b=>b.onclick=()=>send(b.dataset.q));
+}
+
+/* ===================================================================== render loop */
+const SCREENS = {
+  overview: screenOverview, dna: screenDNA, cashflow: screenCashflow, spending: screenSpending,
+  risk: screenRisk, lab: screenLab, goal: screenGoal, copilot: screenCopilot
+};
+
+async function render(){
+  const view = $('#view');
+  view.innerHTML = `<div class="card shimmer">Loading ${state.tab.replace('_',' ')}…</div>`;
+  try{
+    const html = await SCREENS[state.tab]();
+    view.innerHTML = html;
+    if(state.tab==='lab') labBind((await api(`/scenarios/presets?user_id=${state.userId}`)).presets);
+    if(state.tab==='copilot') copilotBind();
+  }catch(err){
+    view.innerHTML = `<div class="card"><b style="color:#f87171">Error</b><div class="hint">${esc(err.message)}</div>
+      <div class="hint" style="margin-top:8px">If the data is missing, run: <code>make data &amp;&amp; make pipeline &amp;&amp; make train</code></div></div>`;
+  }
+}
+
+(async function init(){
+  try{
+    renderTabs();
+    await loadUsers();
+    await render();
+  }catch(err){
+    $('#view').innerHTML = `<div class="card"><b style="color:#f87171">Backend unavailable</b>
+      <div class="hint">${esc(err.message)}</div></div>`;
+  }
+})();
+</script>
+</body>
+</html>

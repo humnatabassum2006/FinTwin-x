@@ -1,0 +1,87 @@
+# FinTwin-X local production-shaped stack.
+# The root image serves the exported Next.js UI and FastAPI from one container.
+services:
+  api:
+    build: .
+    container_name: fintwin-app
+    ports:
+      - "3000:8000"
+      - "8000:8000"
+    environment:
+      PORT: 8000
+      FINTWIN_ENV: production
+      FINTWIN_JWT_SECRET: ${FINTWIN_JWT_SECRET:?Set FINTWIN_JWT_SECRET in .env}
+      FINTWIN_ENABLE_DEMO_USER: ${FINTWIN_ENABLE_DEMO_USER:-false}
+      FINTWIN_EMBEDDING_BACKEND: ${FINTWIN_EMBEDDING_BACKEND:-tfidf}
+      FINTWIN_ENABLE_SHAP: ${FINTWIN_ENABLE_SHAP:-false}
+      DATABASE_URL: postgresql://fintwin:fintwin@db:5432/fintwin
+      MLFLOW_TRACKING_URI: ${MLFLOW_TRACKING_URI:-}
+      LLM_API_KEY: ${LLM_API_KEY:-}
+      LLM_BASE_URL: ${LLM_BASE_URL:-https://api.openai.com/v1}
+      LLM_MODEL: ${LLM_MODEL:-gpt-4o-mini}
+    volumes:
+      - ./logs:/app/logs
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health', timeout=4)"]
+      interval: 15s
+      timeout: 5s
+      retries: 8
+    restart: unless-stopped
+
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: fintwin-db
+    environment:
+      POSTGRES_USER: fintwin
+      POSTGRES_PASSWORD: fintwin
+      POSTGRES_DB: fintwin
+    ports: ["5432:5432"]
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./database/schema:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fintwin -d fintwin"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:v2.16.0
+    container_name: fintwin-mlflow
+    ports: ["5000:5000"]
+    environment:
+      MLFLOW_BACKEND_STORE_URI: sqlite:////mlflow/mlflow.db
+      MLFLOW_DEFAULT_ARTIFACT_ROOT: /mlflow/artifacts
+    volumes:
+      - mlflow:/mlflow
+    command: >
+      mlflow server --host 0.0.0.0 --port 5000
+      --backend-store-uri sqlite:////mlflow/mlflow.db
+      --default-artifact-root /mlflow/artifacts
+
+  prometheus:
+    image: prom/prometheus:v3.0.1
+    container_name: fintwin-prometheus
+    ports: ["9090:9090"]
+    volumes:
+      - ./infrastructure/monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    depends_on: [api]
+
+  grafana:
+    image: grafana/grafana:11.3.0
+    container_name: fintwin-grafana
+    ports: ["3001:3000"]
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: fintwin
+    volumes:
+      - grafana:/var/lib/grafana
+      - ./infrastructure/monitoring/grafana-datasource.yml:/etc/grafana/provisioning/datasources/ds.yml:ro
+    depends_on: [prometheus]
+
+volumes:
+  pgdata:
+  mlflow:
+  grafana:

@@ -1,0 +1,57 @@
+{
+  "generated_at": "2026-10-01T22:01:08",
+  "as_of": "2026-08-31",
+  "tables": {
+    "users": 500,
+    "income": 9000,
+    "transactions": 222675,
+    "debts": 173,
+    "investments": 583,
+    "financial_goals": 776,
+    "asset_prices": 192
+  },
+  "persona_mix": {
+    "balanced_steady": 106,
+    "overspender": 80,
+    "conservative_saver": 69,
+    "irregular_income": 59,
+    "debt_heavy": 54,
+    "aggressive_investor": 54,
+    "financially_fragile": 43,
+    "young_aspirational": 35
+  },
+  "city_mix": {
+    "Hyderabad": 69,
+    "Multan": 55,
+    "Rawalpindi": 53,
+    "Sialkot": 51,
+    "Islamabad": 50,
+    "Lahore": 47,
+    "Quetta": 47,
+    "Faisalabad": 45,
+    "Karachi": 44,
+    "Peshawar": 39
+  },
+  "median_income": 147550.0,
+  "total_transaction_value": 1433962875.0,
+  "anomaly_rate": 0.001068822274615471,
+  "anomaly_breakdown": {
+    "travel_spike": 110,
+    "card_fraud_burst": 79,
+    "big_ticket_purchase": 26,
+    "medical_emergency": 23,
+    "none": 0
+  },
+  "category_mix": {
+    "Housing": 0.2031,
+    "Food": 0.2163,
+    "Transport": 0.0893,
+    "Education": 0.0442,
+    "Healthcare": 0.0548,
+    "Entertainment": 0.0895,
+    "Shopping": 0.1572,
+    "Utilities": 0.0888,
+    "Subscriptions": 0.0186,
+    "Other": 0.0381
+  }
+}
